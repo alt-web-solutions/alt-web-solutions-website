@@ -139,8 +139,9 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-4);
   min-height: var(--button-min-height);
-  padding: 0 var(--space-11);
+  padding: 0 var(--space-10);
   border-radius: var(--radius-pill);
   font-weight: var(--font-weight-bold);
   transition:
@@ -148,6 +149,11 @@ h3 {
     background var(--duration-fast) var(--ease-standard),
     border-color var(--duration-fast) var(--ease-standard),
     box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.btn > span {
+  position: relative;
+  z-index: 1;
 }
 
 .btn::before {

@@ -26,13 +26,13 @@
 
 .service-section-grid {
   display: grid;
-  gap: var(--space-10);
+  gap: var(--space-9);
 }
 
 .service-detail-card {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(280px, 1fr);
-  gap: var(--space-15);
+  gap: var(--space-13);
   align-items: start;
 }
 
@@ -64,6 +64,8 @@
 
 .text-link {
   display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
   width: fit-content;
   margin-top: var(--space-10);
   color: var(--accent);
