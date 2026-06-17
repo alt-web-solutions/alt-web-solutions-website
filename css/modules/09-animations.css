@@ -1,0 +1,35 @@
+/* ================================
+   Scroll Reveal Animation
+================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--translate-reveal));
+  filter: blur(var(--blur-reveal));
+  transition:
+    opacity var(--duration-reveal) var(--ease-standard),
+    transform var(--duration-reveal) var(--ease-standard),
+    filter var(--duration-reveal) var(--ease-standard);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.reveal.delay-1 {
+  transition-delay: var(--delay-1);
+}
+
+.reveal.delay-2 {
+  transition-delay: var(--delay-2);
+}
+
+.reveal.delay-3 {
+  transition-delay: var(--delay-3);
+}
+
+.reveal.delay-4 {
+  transition-delay: var(--delay-4);
+}

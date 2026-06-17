@@ -1,0 +1,147 @@
+/* ================================
+   Colour Section
+================================ */
+
+.colour-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.swatch {
+  width: 100%;
+  aspect-ratio: 1 / 0.75;
+  border-radius: var(--radius-swatch);
+  margin-bottom: var(--space-11);
+  border: var(--border-default);
+  transition:
+    transform var(--duration-standard) var(--ease-standard),
+    box-shadow var(--duration-standard) var(--ease-standard);
+}
+
+.colour-card:hover .swatch {
+  transform: scale(var(--scale-hover-swatch));
+  box-shadow: var(--shadow-swatch-hover);
+}
+
+.swatch-black {
+  background: var(--color-brand-black);
+}
+
+.swatch-white {
+  background: var(--color-brand-white);
+}
+
+.swatch-blue {
+  background: var(--color-brand-blue);
+}
+
+.swatch-charcoal {
+  background: var(--color-brand-charcoal);
+}
+
+/* ================================
+   Typography Section
+================================ */
+
+.typography-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: var(--space-18);
+  align-items: start;
+}
+
+.type-sample {
+  position: sticky;
+  top: var(--space-25);
+}
+
+.type-sample h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-type-sample);
+}
+
+.alphabet {
+  color: var(--text-muted);
+  margin-top: var(--space-15);
+  font-size: var(--text-body-small);
+  line-height: var(--line-height-alphabet);
+  word-break: break-word;
+}
+
+/* ================================
+   Voice Section
+
+   These cards intentionally do NOT use the 3D tilt effect.
+   The hover state is handled with soft opacity, background, border,
+   and position transitions so it fades in and out smoothly.
+================================ */
+
+.voice-list {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.voice-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.55fr 1fr;
+  gap: var(--space-11);
+  align-items: center;
+  padding: var(--space-12);
+  border: var(--border-default);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--surface-card) 88%, transparent);
+  overflow: hidden;
+  transform: translateX(0);
+  transition:
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Soft accent layer. Opacity is animated instead of snapping in/out. */
+.voice-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.voice-item:hover {
+  transform: translateX(var(--space-3));
+  border-color: var(--accent-border-soft);
+  background-color: color-mix(
+    in srgb,
+    var(--surface-card) 94%,
+    var(--accent) 6%
+  );
+  box-shadow: var(--shadow-card-hover-light);
+}
+
+.voice-item:hover::before {
+  opacity: 1;
+}
+
+.voice-item:hover::after {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.voice-item h3,
+.voice-item p {
+  position: relative;
+  z-index: 1;
+}
+
+/* Light theme brand-section polish */
+body.light-theme .voice-item {
+  background: rgba(255, 253, 247, 0.78);
+  border-color: rgba(24, 28, 36, 0.1);
+}
+
+body.light-theme .voice-item:hover {
+  background-color: rgba(255, 253, 247, 0.94);
+  box-shadow: 0 16px 40px rgba(var(--shadow-rgb), 0.08);
+}

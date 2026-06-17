@@ -1,0 +1,107 @@
+/* ================================
+   Section Headings
+================================ */
+
+.section-heading {
+  max-width: var(--section-heading-max-width);
+  margin-bottom: var(--space-20);
+}
+
+.section-heading p:not(.eyebrow) {
+  margin-top: var(--space-11);
+  color: var(--text-muted);
+  font-size: var(--text-section-copy);
+}
+
+/* ================================
+   Cards
+================================ */
+
+.card-grid,
+.colour-grid,
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.info-card,
+.colour-card,
+.service-card,
+.type-sample,
+.process-step {
+  background: var(--surface-card);
+  border: var(--border-default);
+  border-radius: var(--radius);
+  padding: var(--space-15);
+  transform: translateY(0);
+  transition:
+    transform var(--duration-standard) var(--ease-standard),
+    background var(--duration-theme) var(--ease-standard),
+    border-color var(--duration-theme) var(--ease-standard),
+    box-shadow var(--duration-theme) var(--ease-standard);
+}
+
+.info-card:hover,
+.colour-card:hover,
+.service-card:hover,
+.type-sample:hover,
+.process-step:hover {
+  transform: translateY(var(--translate-card-hover));
+  border-color: var(--accent-border-soft);
+  box-shadow: var(--shadow-card-hover);
+}
+
+body.light-theme .info-card:hover,
+body.light-theme .colour-card:hover,
+body.light-theme .service-card:hover,
+body.light-theme .type-sample:hover,
+body.light-theme .process-step:hover {
+  box-shadow: var(--shadow-card-hover-light);
+}
+
+.info-card span,
+.service-label,
+.process-step span {
+  font-family: var(--font-body);
+  display: inline-block;
+  color: var(--accent);
+  font-size: var(--text-label);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  margin-bottom: var(--space-11);
+}
+
+.info-card p,
+.colour-card p,
+.service-card p,
+.type-sample p,
+.process-step p,
+.voice-item p {
+  color: var(--text-muted);
+  margin-top: var(--space-8);
+}
+
+/* Light theme card polish
+   Cards keep contrast, but avoid harsh white blocks and sharp outlines. */
+body.light-theme .info-card,
+body.light-theme .colour-card,
+body.light-theme .service-card,
+body.light-theme .type-sample,
+body.light-theme .process-step {
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.92), rgba(250, 247, 239, 0.78));
+  border-color: rgba(24, 28, 36, 0.1);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+}
+
+body.light-theme .info-card:hover,
+body.light-theme .colour-card:hover,
+body.light-theme .service-card:hover,
+body.light-theme .type-sample:hover,
+body.light-theme .process-step:hover {
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.98), rgba(248, 245, 238, 0.9));
+  border-color: var(--accent-border-soft);
+}

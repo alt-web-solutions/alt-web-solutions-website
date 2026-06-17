@@ -1,0 +1,269 @@
+/* ================================
+   Header / Navigation
+================================ */
+
+.site-header {
+  /* Fixed keeps the navigation pinned to the viewport instead of sitting inside the page flow. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--surface-header);
+  backdrop-filter: blur(var(--blur-header));
+  border-bottom: var(--border-default);
+}
+
+.nav {
+  width: min(100% - var(--container-gutter), var(--container-max-width));
+  min-height: var(--header-height);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img {
+  height: var(--logo-height);
+  transition:
+    transform var(--duration-standard) var(--ease-standard),
+    opacity var(--duration-standard) var(--ease-standard);
+}
+
+.nav-logo:hover img {
+  transform: translateY(var(--translate-hover-sm));
+  opacity: 0.88;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-11);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-14);
+}
+
+.nav-links a {
+  position: relative;
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  font-size: var(--text-body-small);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: var(--nav-link-underline-offset);
+  width: 100%;
+  height: var(--nav-toggle-line-height);
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-standard) var(--ease-standard);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.theme-toggle {
+  font-family: var(--font-body);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: var(--theme-toggle-min-height);
+  padding: 0 var(--space-5);
+  background: var(--surface-card);
+  color: var(--text);
+  border: var(--border-default);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-size: var(--text-small);
+  font-weight: var(--font-weight-bold);
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+}
+
+.theme-toggle:hover {
+  transform: translateY(var(--translate-hover-sm));
+  border-color: var(--accent-border-medium);
+}
+
+.theme-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--theme-toggle-icon-size);
+  height: var(--theme-toggle-icon-size);
+  background: var(--accent);
+  color: var(--color-pure-white);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-eyebrow);
+  line-height: var(--line-height-tight);
+  transition:
+    transform var(--duration-standard) var(--ease-standard),
+    background var(--duration-standard) var(--ease-standard);
+}
+
+.theme-toggle:hover .theme-toggle-icon {
+  transform: rotate(var(--rotate-icon-hover)) scale(var(--scale-hover-icon));
+}
+
+.nav-toggle {
+  display: none;
+  width: var(--nav-toggle-size);
+  height: var(--nav-toggle-size);
+  background: transparent;
+  border: var(--border-default);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: var(--nav-toggle-line-width);
+  height: var(--nav-toggle-line-height);
+  background: var(--text);
+  margin: var(--space-2) auto;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+/* ================================
+   Final motion polish
+   The nav controls now animate gently instead of changing state instantly.
+================================ */
+
+.nav-toggle {
+  position: relative;
+  display: none;
+  place-items: center;
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-toggle:hover {
+  transform: translateY(-1px) scale(1.03);
+  border-color: var(--accent-border-medium);
+  background: var(--surface-card);
+  box-shadow: 0 12px 30px rgba(var(--shadow-rgb), 0.14);
+}
+
+.nav-toggle span {
+  position: absolute;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  transform-origin: center;
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.28s var(--ease-standard),
+    width 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-toggle span:first-child {
+  transform: translate(-50%, -4px);
+}
+
+.nav-toggle span:last-child {
+  transform: translate(-50%, 4px);
+}
+
+.nav-toggle.active {
+  border-color: var(--accent-border-medium);
+  background: var(--accent-glow-subtle);
+}
+
+.nav-toggle.active span:first-child {
+  width: 20px;
+  transform: translate(-50%, 0) rotate(45deg);
+}
+
+.nav-toggle.active span:last-child {
+  width: 20px;
+  transform: translate(-50%, 0) rotate(-45deg);
+}
+
+.theme-toggle {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, var(--accent-glow-subtle), transparent);
+  opacity: 0;
+  transform: translateX(-45%);
+  transition:
+    opacity 0.35s var(--ease-standard),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.theme-toggle:hover::before,
+.theme-toggle.is-changing::before {
+  opacity: 1;
+  transform: translateX(45%);
+}
+
+.theme-toggle.is-changing .theme-toggle-icon {
+  animation: themeIconPop 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.theme-toggle.is-changing .theme-toggle-text {
+  animation: themeTextSlide 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes themeIconPop {
+  0% { transform: rotate(0deg) scale(1); }
+  45% { transform: rotate(130deg) scale(0.72); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes themeTextSlide {
+  0% { opacity: 0.45; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Light theme navigation polish */
+body.light-theme .site-header {
+  background: var(--surface-header);
+  box-shadow: 0 10px 34px rgba(var(--shadow-rgb), 0.06);
+}
+
+body.light-theme .theme-toggle,
+body.light-theme .nav-toggle {
+  background: rgba(255, 253, 247, 0.72);
+  border-color: rgba(24, 28, 36, 0.12);
+}
+
+body.light-theme .theme-toggle:hover,
+body.light-theme .nav-toggle:hover {
+  background: rgba(255, 253, 247, 0.95);
+}

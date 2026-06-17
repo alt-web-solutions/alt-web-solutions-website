@@ -1,0 +1,112 @@
+/* ================================
+   Services
+================================ */
+
+.service-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.service-card {
+  min-height: var(--service-card-min-height);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card.featured {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, var(--accent-glow-feature), var(--surface-card)),
+    var(--bg-card);
+}
+
+.service-card.featured::before {
+  content: "";
+  position: absolute;
+  inset: var(--feature-glow-inset);
+  pointer-events: none;
+  background: radial-gradient(
+    circle at top right,
+    var(--accent-glow-strong),
+    transparent var(--glow-size-feature)
+  );
+  opacity: 0.75;
+}
+
+.service-card.featured > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.light-theme .service-card.featured {
+  background:
+    linear-gradient(145deg, var(--accent-glow-subtle), var(--surface-feature-light)),
+    var(--bg-card);
+}
+
+.service-card ul {
+  margin-top: auto;
+  padding-top: var(--space-16);
+}
+
+.service-card li {
+  color: var(--text-muted);
+  padding: var(--space-5) 0;
+  border-top: var(--border-default);
+}
+
+/* ================================
+   Process
+================================ */
+
+.process {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.process-step span {
+  transition:
+    color var(--duration-standard) var(--ease-standard),
+    transform var(--duration-standard) var(--ease-standard);
+}
+
+.process-step:hover span {
+  transform: translateX(var(--translate-process-arrow));
+}
+
+/* ================================
+   Footer
+================================ */
+
+.site-footer {
+  border-top: var(--border-default);
+  padding: var(--space-14) 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-9);
+  color: var(--text-muted);
+  font-size: var(--text-body-small);
+}
+
+.footer-inner a {
+  color: var(--text);
+}
+
+/* Light theme services/footer polish */
+body.light-theme .service-card.featured {
+  background:
+    linear-gradient(145deg, rgba(36, 87, 197, 0.09), rgba(255, 253, 247, 0.9)),
+    var(--bg-card);
+}
+
+body.light-theme .service-card.featured::before {
+  opacity: 0.42;
+}
+
+body.light-theme .site-footer {
+  background: rgba(246, 244, 236, 0.72);
+}

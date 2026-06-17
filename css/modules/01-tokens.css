@@ -1,0 +1,300 @@
+/* ================================
+   Design Tokens
+   All reusable brand, layout, spacing,
+   typography, radius, shadow and motion
+   values live here.
+================================ */
+
+:root {
+  /* Fonts */
+  --font-body: "Canva Sans", Arial, Helvetica, sans-serif;
+  --font-display:
+    "Canva Sans Display", "Canva Sans", Arial, Helvetica, sans-serif;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Brand colours */
+  --color-brand-black: #050505;
+  --color-brand-charcoal: #111111;
+  --color-brand-blue: #2563eb;
+  --color-brand-blue-hover: #1d4ed8;
+  --color-brand-white: #f5f5f5;
+  --color-brand-off-white: #f5f5f2;
+  --color-pure-white: #ffffff;
+  --color-transparent: transparent;
+
+  /* Theme colours - dark mode defaults */
+  --bg: var(--color-brand-black);
+  --bg-soft: #0d0d0d;
+  --bg-card: var(--color-brand-charcoal);
+  --text: var(--color-brand-white);
+  --text-muted: #a3a3a3;
+  --muted: var(--text-muted);
+  --border: rgba(255, 255, 255, 0.1);
+  --accent: var(--color-brand-blue);
+  --accent-hover: var(--color-brand-blue-hover);
+  --text-on-accent: var(--color-pure-white);
+
+  /* Surfaces and overlays */
+  --surface-header: rgba(5, 5, 5, 0.78);
+  --surface-card: rgba(255, 255, 255, 0.035);
+  --surface-muted-start: rgba(255, 255, 255, 0.025);
+  --surface-muted-end: rgba(255, 255, 255, 0.01);
+  --surface-field-light: rgba(255, 255, 255, 0.92);
+  --surface-feature-light: rgba(255, 255, 255, 0.88);
+  --header-bg: var(--surface-header);
+  --card-fill: var(--surface-card);
+  --section-muted-start: var(--surface-muted-start);
+  --section-muted-end: var(--surface-muted-end);
+  --hero-glow: var(--accent-glow-page);
+  --soft-glow: var(--neutral-glow-page);
+
+  /* Accent tints and glow colours */
+  --accent-glow-page: rgba(37, 99, 235, 0.16);
+  --accent-glow-strong: rgba(37, 99, 235, 0.28);
+  --accent-glow-medium: rgba(37, 99, 235, 0.24);
+  --accent-glow-soft: rgba(37, 99, 235, 0.18);
+  --accent-glow-feature: rgba(37, 99, 235, 0.2);
+  --accent-glow-subtle: rgba(37, 99, 235, 0.13);
+  --accent-glow-faint: rgba(37, 99, 235, 0.12);
+  --accent-glow-bottom: rgba(37, 99, 235, 0.08);
+  --accent-glow-bottom-light: rgba(37, 99, 235, 0.07);
+  --accent-border-soft: rgba(37, 99, 235, 0.35);
+  --accent-border-medium: rgba(37, 99, 235, 0.5);
+  --accent-border-strong: rgba(37, 99, 235, 0.75);
+  --accent-button-shadow: rgba(37, 99, 235, 0.24);
+  --accent-button-shadow-hover: rgba(37, 99, 235, 0.34);
+  --accent-focus-ring: rgba(37, 99, 235, 0.13);
+
+  /* Neutral effects */
+  --neutral-glow-page: rgba(255, 255, 255, 0.06);
+  --neutral-glow-dark: rgba(255, 255, 255, 0.04);
+  --neutral-glow-light: rgba(0, 0, 0, 0.04);
+  --shine-highlight: rgba(255, 255, 255, 0.22);
+  --shadow-rgb: 0, 0, 0;
+
+  /* Layout */
+  --container-max-width: 1180px;
+  --max-width: var(--container-max-width);
+  --container-gutter: 32px;
+  --logo-height: 50px;
+  --theme-toggle-min-height: 42px;
+  --theme-toggle-icon-size: 22px;
+  --nav-toggle-size: 46px;
+  --nav-toggle-line-width: 18px;
+  --nav-toggle-line-height: 2px;
+  --nav-link-underline-offset: -7px;
+  --nav-link-underline-mobile-offset: 8px;
+  --nav-link-underline-height: 2px;
+  --button-min-height: 54px;
+  --service-card-min-height: 560px;
+  --service-card-three-min-height: 610px;
+  --mobile-nav-edge: 16px;
+  --ambient-backdrop-inset: -30%;
+  --feature-glow-inset: -1px;
+  --header-height: 82px;
+  --hero-content-max-width: 980px;
+  --hero-title-max-width: 900px;
+  --hero-text-max-width: 650px;
+  --section-heading-max-width: 850px;
+  --quote-note-text-max-width: 780px;
+
+  /* Spacing */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 5px;
+  --space-3: 8px;
+  --space-4: 9px;
+  --space-5: 14px;
+  --space-6: 15px;
+  --space-7: 16px;
+  --space-8: 18px;
+  --space-9: 20px;
+  --space-10: 22px;
+  --space-11: 24px;
+  --space-12: 26px;
+  --space-13: 28px;
+  --space-14: 30px;
+  --space-15: 32px;
+  --space-16: 34px;
+  --space-17: 42px;
+  --space-18: 46px;
+  --space-19: 48px;
+  --space-20: 54px;
+  --space-21: 58px;
+  --space-22: 64px;
+  --space-23: 80px;
+  --space-24: 82px;
+  --space-25: 110px;
+  --form-field-padding-block: 15px;
+  --form-field-padding-inline: 16px;
+  --contact-panel-padding-fluid: 5vw;
+
+  /* Border radius */
+  --radius-none: 0;
+  --radius-form-field: 18px;
+  --radius-swatch: 22px;
+  --radius-card: 28px;
+  --radius-lg: 24px;
+  --radius-md: 22px;
+  --radius-xl: var(--radius-card);
+  --radius: var(--radius-card);
+  --radius-pill: 999px;
+
+  /* Borders */
+  --border-width: 1px;
+  --border-width-nav-indicator: 2px;
+  --border-default: var(--border-width) solid var(--border);
+
+  /* Shadows */
+  --shadow-site: 0 24px 80px rgba(var(--shadow-rgb), 0.45);
+  --shadow: var(--shadow-site);
+  --shadow-card: 0 24px 80px rgba(var(--shadow-rgb), 0.45);
+  --shadow-card-hover: 0 22px 70px rgba(var(--shadow-rgb), 0.24);
+  --shadow-card-hover-light: 0 22px 70px rgba(var(--shadow-rgb), 0.1);
+  --shadow-faq-hover: 0 22px 70px rgba(var(--shadow-rgb), 0.18);
+  --shadow-swatch-hover: 0 18px 38px rgba(var(--shadow-rgb), 0.22);
+  --shadow-button-primary: 0 14px 34px var(--accent-button-shadow);
+  --shadow-button-primary-hover: 0 18px 42px var(--accent-button-shadow-hover);
+  --shadow-focus-ring: 0 0 0 4px var(--accent-focus-ring);
+
+  /* Typography scale */
+  --text-eyebrow: 0.8rem;
+  --text-label: 0.78rem;
+  --text-small: 0.9rem;
+  --text-form-label: 0.92rem;
+  --text-body-small: 0.95rem;
+  --text-body: 1rem;
+  --text-section-copy: 1.15rem;
+  --text-faq-icon: 1.4rem;
+  --text-hero-copy: clamp(1.1rem, 2vw, 1.35rem);
+  --text-heading-1: clamp(4rem, 9vw, 8.8rem);
+  --text-heading-1-mobile: clamp(3.2rem, 17vw, 5rem);
+  --text-heading-2: clamp(2.5rem, 5vw, 5.8rem);
+  --text-heading-3: clamp(1.6rem, 2.2vw, 2.4rem);
+  --text-heading-price: clamp(2.2rem, 4vw, 4.2rem);
+  --text-heading-package: clamp(1.55rem, 2.5vw, 2.15rem);
+  --text-type-sample: clamp(3rem, 6vw, 6rem);
+
+  /* Letter spacing and line height */
+  --tracking-tight: -0.05em;
+  --tracking-package-heading: -0.04em;
+  --tracking-eyebrow: 0.18em;
+  --tracking-label: 0.14em;
+  --line-height-base: 1.6;
+  --line-height-tight: 1;
+  --line-height-package-heading: 1.06;
+  --line-height-alphabet: 1.8;
+
+  /* Motion */
+  --duration-fast: 0.25s;
+  --duration-standard: 0.28s;
+  --duration-theme: 0.3s;
+  --duration-shine: 0.65s;
+  --duration-reveal: 0.75s;
+  --duration-hero: 0.8s;
+  --duration-hero-title: 0.9s;
+  --duration-ambient: 18s;
+  --duration-disabled-motion: 0.001ms;
+  --ease-standard: ease;
+  --delay-hero-eyebrow: 0.1s;
+  --delay-hero-title: 0.18s;
+  --delay-hero-text: 0.34s;
+  --delay-hero-actions: 0.48s;
+  --delay-1: 0.08s;
+  --delay-2: 0.16s;
+  --delay-3: 0.24s;
+  --delay-4: 0.32s;
+
+  /* Effects */
+  --blur-header: 18px;
+  --blur-reveal: 8px;
+  --glow-size-hero: 34rem;
+  --glow-size-soft: 24rem;
+  --glow-size-ambient-primary: 28rem;
+  --glow-size-ambient-secondary: 24rem;
+  --glow-size-ambient-tertiary: 30rem;
+  --glow-size-feature: 18rem;
+  --ambient-offset-start-x: -2%;
+  --ambient-offset-start-y: -1%;
+  --ambient-offset-end-x: 2%;
+  --ambient-offset-end-y: 1%;
+  --translate-hover-sm: -1px;
+  --translate-hover-md: -2px;
+  --translate-card-hover: -6px;
+  --translate-faq-hover: -3px;
+  --translate-reveal: 28px;
+  --translate-hero-title: 30px;
+  --translate-hero-content: 26px;
+  --translate-fade-up: 18px;
+  --translate-faq-content: -6px;
+  --translate-process-arrow: 4px;
+  --mobile-menu-offset: -8px;
+  --scale-hover-swatch: 1.025;
+  --scale-hover-icon: 1.06;
+  --scale-mobile-menu: 0.98;
+  --ambient-scale-end: 1.06;
+  --rotate-icon-hover: 14deg;
+  --rotate-faq-open: 45deg;
+  --shine-skew: -18deg;
+  --shine-start: -120%;
+  --shine-end: 130%;
+  --shine-width: 80%;
+}
+
+/* Light Theme
+   A warmer, softer light palette to reduce glare while keeping the Alt. brand clean. */
+body.light-theme {
+  --bg: #f1efe7;
+  --bg-soft: #f8f6ef;
+  --bg-card: #fffdf7;
+  --text: #111318;
+  --text-muted: #606672;
+  --muted: var(--text-muted);
+  --border: rgba(24, 28, 36, 0.11);
+  --accent: #2457c5;
+  --accent-hover: #1d4ed8;
+
+  --surface-header: rgba(246, 244, 236, 0.9);
+  --surface-card: rgba(255, 253, 247, 0.82);
+  --surface-muted-start: rgba(37, 99, 235, 0.035);
+  --surface-muted-end: rgba(24, 28, 36, 0.018);
+  --surface-field-light: rgba(255, 253, 247, 0.96);
+  --surface-feature-light: rgba(255, 253, 247, 0.9);
+  --header-bg: var(--surface-header);
+  --card-fill: var(--surface-card);
+  --section-muted-start: var(--surface-muted-start);
+  --section-muted-end: var(--surface-muted-end);
+  --hero-glow: var(--accent-glow-page);
+  --soft-glow: var(--neutral-glow-page);
+
+  /* Lighter accent effects stop the light theme from feeling too bright or blue-heavy. */
+  --accent-glow-page: rgba(36, 87, 197, 0.09);
+  --accent-glow-strong: rgba(36, 87, 197, 0.18);
+  --accent-glow-medium: rgba(36, 87, 197, 0.14);
+  --accent-glow-soft: rgba(36, 87, 197, 0.1);
+  --accent-glow-feature: rgba(36, 87, 197, 0.12);
+  --accent-glow-subtle: rgba(36, 87, 197, 0.075);
+  --accent-glow-faint: rgba(36, 87, 197, 0.055);
+  --accent-glow-bottom: rgba(36, 87, 197, 0.04);
+  --accent-glow-bottom-light: rgba(36, 87, 197, 0.035);
+  --accent-border-soft: rgba(36, 87, 197, 0.28);
+  --accent-border-medium: rgba(36, 87, 197, 0.42);
+  --accent-border-strong: rgba(36, 87, 197, 0.68);
+  --accent-button-shadow: rgba(36, 87, 197, 0.18);
+  --accent-button-shadow-hover: rgba(36, 87, 197, 0.26);
+  --accent-focus-ring: rgba(36, 87, 197, 0.12);
+  --neutral-glow-page: rgba(111, 97, 72, 0.1);
+  --neutral-glow-dark: rgba(111, 97, 72, 0.08);
+  --neutral-glow-light: rgba(111, 97, 72, 0.08);
+
+  --shadow-site: 0 24px 70px rgba(var(--shadow-rgb), 0.1);
+  --shadow: var(--shadow-site);
+  --shadow-card: 0 20px 60px rgba(var(--shadow-rgb), 0.09);
+  --shadow-card-hover: 0 18px 52px rgba(var(--shadow-rgb), 0.12);
+  --shadow-card-hover-light: 0 18px 52px rgba(var(--shadow-rgb), 0.08);
+  --shadow-faq-hover: 0 18px 48px rgba(var(--shadow-rgb), 0.1);
+}

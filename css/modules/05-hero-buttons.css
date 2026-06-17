@@ -1,0 +1,196 @@
+/* ================================
+   Hero
+================================ */
+
+.hero {
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-22);
+  align-items: center;
+}
+
+.hero-content {
+  max-width: var(--hero-content-max-width);
+  animation: heroFadeUp var(--duration-hero-title) var(--ease-standard) forwards;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--translate-hero-content));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  color: var(--accent);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  margin-bottom: var(--space-8);
+}
+
+.hero-content .eyebrow {
+  animation: fadeIn var(--duration-hero) var(--ease-standard) var(--delay-hero-eyebrow) both;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+h1 {
+  max-width: var(--hero-title-max-width);
+  font-size: var(--text-heading-1);
+  font-weight: var(--font-weight-bold);
+}
+
+.hero-content h1 {
+  animation: heroTitle var(--duration-hero-title) var(--ease-standard) var(--delay-hero-title) both;
+}
+
+h2 {
+  font-size: var(--text-heading-2);
+  font-weight: var(--font-weight-bold);
+}
+
+h3 {
+  font-size: var(--text-heading-3);
+  font-weight: var(--font-weight-bold);
+}
+
+.hero-text {
+  max-width: var(--hero-text-max-width);
+  color: var(--text-muted);
+  font-size: var(--text-hero-copy);
+  margin-top: var(--space-14);
+}
+
+.hero-content .hero-text {
+  animation: fadeUp var(--duration-hero) var(--ease-standard) var(--delay-hero-text) both;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-top: var(--space-17);
+}
+
+.hero-content .hero-actions {
+  animation: fadeUp var(--duration-hero) var(--ease-standard) var(--delay-hero-actions) both;
+}
+
+@keyframes heroTitle {
+  from {
+    opacity: 0;
+    transform: translateY(var(--translate-hero-title));
+    filter: blur(var(--blur-reveal));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--translate-fade-up));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-body);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--button-min-height);
+  padding: 0 var(--space-11);
+  border-radius: var(--radius-pill);
+  font-weight: var(--font-weight-bold);
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--shine-start);
+  width: var(--shine-width);
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent,
+    var(--shine-highlight),
+    transparent
+  );
+  transform: skewX(var(--shine-skew));
+  transition: left var(--duration-shine) var(--ease-standard);
+}
+
+.btn:hover::before {
+  left: var(--shine-end);
+}
+
+.btn:hover {
+  transform: translateY(var(--translate-hover-md));
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--text-on-accent);
+  box-shadow: var(--shadow-button-primary);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-button-primary-hover);
+}
+
+.btn-secondary {
+  border: var(--border-default);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-border-medium);
+}

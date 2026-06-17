@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en-NZ" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Alt. Web Solutions | Websites & Managed Web Support</title>
+    <meta
+      name="description"
+      content="Alt. Web Solutions helps small local businesses get clean, mobile-friendly websites built, launched, and looked after without technical stress."
+    />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png" />
+    <link rel="shortcut icon" href="assets/favicon.png" />
+    <!--
+      Dark mode is the default brand experience.
+      The JS theme toggle can still switch to light mode after the page loads.
+    -->
+    <!-- Main stylesheet imports the modular CSS files in order. -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body data-theme="dark">
+    <!-- Decorative background layers. These sit outside the document flow so they never add scroll height. -->
+    <canvas
+      class="tech-background"
+      id="techBackground"
+      aria-hidden="true"
+    ></canvas>
+    <div class="tech-ambient" aria-hidden="true"></div>
+    <div class="tech-grid" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <nav class="nav">
+        <a href="#home" class="nav-logo" aria-label="Alt. Web Solutions home">
+          <img
+            src="assets/alt-web-solutions-logo-white-icon.png"
+            alt="Alt. Web Solutions logo"
+            id="siteLogo"
+          />
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-label="Open navigation menu"
+          type="button"
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-actions">
+          <div class="nav-links">
+            <a href="about.html">About</a>
+            <a href="#services">Services</a>
+            <a href="#managed-care">Managed Care</a>
+            <a href="#pricing">Packages</a>
+            <a href="#process">Process</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle light and dark mode"
+          >
+            <span class="theme-toggle-icon" id="themeIcon">☾</span>
+            <span class="theme-toggle-text" id="themeText">Dark</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="home">
+      <!-- Hero -->
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <p class="eyebrow">Alt. Web Solutions</p>
+
+            <h1>Simple solutions.</h1>
+            <h1>No technical stress.</h1>
+
+            <p class="hero-text">
+              Alt. Web Solutions helps local businesses get online, look
+              professional, and keep the technical side handled.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">Start a Project</a>
+              <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Identity / Positioning -->
+      <section id="identity" class="section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">01 / What Alt. does</p>
+            <h2>Your local web alternative.</h2>
+            <p>
+              Alt. Web Solutions helps local businesses get online and stay
+              supported with practical web solutions, clear communication, and
+              no unnecessary technical stress.
+            </p>
+          </div>
+
+          <div class="card-grid">
+            <article class="info-card reveal tilt-card">
+              <span>Positioning</span>
+              <h3>Simple web solutions</h3>
+              <p>
+                Clean website design, launch support, hosting, and ongoing care
+                for local businesses.
+              </p>
+            </article>
+
+            <article class="info-card reveal tilt-card">
+              <span>Brand Promise</span>
+              <h3>Handled for you</h3>
+              <p>
+                Helping business owners stay focused on their work while the
+                website, hosting, domain, updates, and basic checks are looked
+                after.
+              </p>
+            </article>
+
+            <article class="info-card reveal tilt-card">
+              <span>Built For</span>
+              <h3>Local businesses</h3>
+              <p>
+                Ideal for trades, service providers, sole traders, family
+                businesses, local tourism operators, and community-based brands.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Who it helps -->
+      <section id="who" class="section section-muted">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">02 / Who Alt. helps</p>
+            <h2>Built for local businesses.</h2>
+            <p>
+              Your website should make it easy for customers to understand what
+              you do, feel confident in your business, and get in touch.
+            </p>
+          </div>
+
+          <div class="card-grid">
+            <article class="info-card reveal tilt-card">
+              <span>Outdated website</span>
+              <h3>Refresh your online presence</h3>
+              <p>
+                Modernise a website that no longer reflects the quality of your
+                work, your services, or the experience you provide.
+              </p>
+            </article>
+
+            <article class="info-card reveal tilt-card">
+              <span>No website</span>
+              <h3>Get online properly</h3>
+              <p>
+                Create a clear, mobile-friendly website so customers are not
+                relying only on social media to find and contact you.
+              </p>
+            </article>
+
+            <article class="info-card reveal tilt-card">
+              <span>Hard to manage</span>
+              <h3>Keep it looked after</h3>
+              <p>
+                Get practical support with updates, hosting, domain settings,
+                SSL checks, and basic website maintenance.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services" class="section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">03 / Services</p>
+            <h2>Focused services with room to grow.</h2>
+            <p>
+              Start with a clean one-off website project, then add managed care
+              when you want the technical side handled after launch.
+            </p>
+          </div>
+
+          <div class="service-grid service-grid-three">
+            <article class="service-card reveal tilt-card">
+              <p class="service-label">Service One</p>
+              <h3>Website Design, Build & Launch</h3>
+              <p>
+                A one-off website project for small businesses that need a
+                clean, mobile-friendly website designed, built, tested, and
+                prepared for launch.
+              </p>
+
+              <ul>
+                <li>Website structure and page planning</li>
+                <li>Responsive design for desktop, tablet, and mobile</li>
+                <li>
+                  Core pages such as Home, About, Services, FAQ, Gallery, and
+                  Contact
+                </li>
+                <li>
+                  Click-to-call, email, map, and social links where suitable
+                </li>
+                <li>Basic SEO setup and launch checks</li>
+              </ul>
+            </article>
+
+            <article class="service-card reveal tilt-card">
+              <p class="service-label">Service Two</p>
+              <h3>Managed Web Service</h3>
+              <p>
+                Optional ongoing support for clients who want their website,
+                hosting, domain settings, basic updates, and checks handled
+                after launch.
+              </p>
+
+              <ul>
+                <li>
+                  Minor text, image, link, pricing, or opening-hour updates
+                </li>
+                <li>Basic website checks and troubleshooting</li>
+                <li>Domain, DNS, SSL, and hosting support where agreed</li>
+                <li>Email or message support for website-related questions</li>
+                <li>Basic backups where applicable</li>
+              </ul>
+            </article>
+
+            <article class="service-card reveal tilt-card">
+              <p class="service-label">Support Offer</p>
+              <h3>Website Refresh Support</h3>
+              <p>
+                A practical starting point for businesses with an outdated
+                website that need a clearer direction before committing to a
+                full rebuild.
+              </p>
+
+              <ul>
+                <li>Current website review</li>
+                <li>Visual direction or concept support</li>
+                <li>Cleaner customer journey recommendations</li>
+                <li>Pathway to a full website build if approved</li>
+                <li>
+                  Helpful for outreach concepts and redesign conversations
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Managed Care -->
+      <section id="managed-care" class="section section-muted">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">04 / Managed care</p>
+            <h2>Stay accurate. Stay online.</h2>
+            <p>
+              Managed Web Service is for business owners who want peace of mind
+              after launch — without having to manage hosting, domain settings,
+              updates, backups, or small website changes themselves.
+            </p>
+          </div>
+
+          <div class="voice-list compact-list">
+            <div class="voice-item reveal">
+              <h3>Website updates</h3>
+              <p>
+                Minor text changes, image swaps, service updates, seasonal
+                notices, opening hours, pricing updates, and small layout
+                adjustments.
+              </p>
+            </div>
+
+            <div class="voice-item reveal">
+              <h3>Technical care</h3>
+              <p>
+                Basic checks for loading, navigation, buttons, email links,
+                phone links, Google Maps, forms, and mobile display issues.
+              </p>
+            </div>
+
+            <div class="voice-item reveal">
+              <h3>Hosting & domain coordination</h3>
+              <p>
+                Support with domain connections, DNS changes, hosting setup,
+                renewal coordination, SSL checks, and provider communication
+                where agreed.
+              </p>
+            </div>
+
+            <div class="voice-item reveal">
+              <h3>Clear support</h3>
+              <p>
+                Email or message-based support for reasonable website-related
+                questions, with check-ins depending on the agreed plan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Packages -->
+      <section id="pricing" class="section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">05 / Packages & quoting</p>
+            <h2>Clear scope. No surprises.</h2>
+            <p>
+              Every business is different, so pricing is confirmed after a quick
+              scope conversation. You’ll receive a clear quote that explains
+              what’s included, what’s not included, and any optional extras
+              before work begins.
+            </p>
+          </div>
+
+          <div class="card-grid pricing-grid package-grid">
+            <article class="info-card price-card package-card reveal tilt-card">
+              <span>Concept / Refresh</span>
+              <h3>Website Review & Refresh</h3>
+              <p>
+                Best for businesses with an outdated website that need clearer
+                visual direction, improved customer flow, or concept support
+                before moving into a full rebuild.
+              </p>
+            </article>
+
+            <article class="info-card price-card package-card reveal tilt-card">
+              <span>Website Project</span>
+              <h3>Design, build & launch</h3>
+              <p>
+                Best for small business websites, landing pages, service pages,
+                redesigns, and concept-to-live builds with clear launch checks.
+              </p>
+            </article>
+
+            <article class="info-card price-card package-card reveal tilt-card">
+              <span>Managed Care</span>
+              <h3>Ongoing website support</h3>
+              <p>
+                Best for clients who want minor updates, basic checks, hosting
+                and domain support, and practical website help after launch.
+              </p>
+            </article>
+          </div>
+
+          <div class="quote-note reveal voice-item">
+            <strong>Prefer a quick estimate first?</strong>
+            <span>
+              Send through your current website or project idea, and I can
+              outline the likely scope before preparing a formal quote.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section id="process" class="section section-muted">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">06 / Process</p>
+            <h2>Launch without the guesswork.</h2>
+            <p>
+              The process is kept clear, practical, and easy to follow, so you
+              always know what is happening and what comes next.
+            </p>
+          </div>
+
+          <div class="process">
+            <div class="process-step reveal tilt-card">
+              <span>01</span>
+              <h3>Initial chat</h3>
+              <p>
+                We talk through your business, current website, goals,
+                customers, pages, and technical setup.
+              </p>
+            </div>
+
+            <div class="process-step reveal tilt-card">
+              <span>02</span>
+              <h3>Scope & estimate</h3>
+              <p>
+                We confirm the likely cost, what is included, what is not
+                included, optional extras, content needs, and timelines.
+              </p>
+            </div>
+
+            <div class="process-step reveal tilt-card">
+              <span>03</span>
+              <h3>Content & access</h3>
+              <p>
+                You send through logos, business details, photos, service
+                information, contact details, and any domain or hosting access
+                needed.
+              </p>
+            </div>
+
+            <div class="process-step reveal tilt-card">
+              <span>04</span>
+              <h3>Design & build</h3>
+              <p>
+                The website structure, visual direction, and pages are created
+                using the agreed approach.
+              </p>
+            </div>
+
+            <div class="process-step reveal tilt-card">
+              <span>05</span>
+              <h3>Review & revisions</h3>
+              <p>
+                You review the website and request agreed changes before final
+                approval and launch.
+              </p>
+            </div>
+
+            <div class="process-step reveal tilt-card">
+              <span>06</span>
+              <h3>Launch & care</h3>
+              <p>
+                The site is prepared for launch, checked across key devices,
+                connected where needed, and moved into managed care if agreed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="section">
+        <div class="container faq-layout">
+          <div class="section-heading reveal">
+            <p class="eyebrow">07 / FAQ</p>
+            <h2>Before we start.</h2>
+            <p>
+              A few practical answers for business owners considering a new
+              website, refresh, or managed care plan.
+            </p>
+          </div>
+
+          <div class="faq-list reveal">
+            <details>
+              <summary>Do I need hosting or a domain already?</summary>
+              <p>
+                No. If you already have them, Alt. can work with your current
+                setup where suitable. If not, hosting and domain options can be
+                discussed before launch.
+              </p>
+            </details>
+
+            <details>
+              <summary>Can you redesign my current website?</summary>
+              <p>
+                Yes. Alt. can help with website refreshes, redesign concepts, or
+                rebuilding an outdated site into something cleaner, clearer, and
+                easier for customers to use.
+              </p>
+            </details>
+
+            <details>
+              <summary>Do you manage the website after launch?</summary>
+              <p>
+                Yes. Managed Web Service is available for clients who want small
+                updates, website checks, hosting and domain support, and
+                practical help after launch.
+              </p>
+            </details>
+
+            <details>
+              <summary>What do I need to provide?</summary>
+              <p>
+                Usually your logo, business details, service information,
+                contact details, images, social links, and access to any
+                relevant website, hosting, domain, or platform accounts.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is copywriting included?</summary>
+              <p>
+                Basic wording and layout support may be included depending on
+                the project scope. Larger copywriting, rewriting, or content
+                planning can be quoted separately.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section section-muted">
+        <div class="container contact-panel reveal">
+          <div>
+            <p class="eyebrow">08 / Start a project</p>
+            <h2>Let’s get you sorted.</h2>
+            <p>
+              Need a new website, a refresh, or ongoing support? Send through a
+              few details, and Alt. will come back with a clear next step.
+            </p>
+          </div>
+
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/xgoqglag"
+            method="POST"
+            data-contact-form
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New enquiry from Alt. Web Solutions"
+            />
+
+            <label>
+              <span>Name</span>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                autocomplete="name"
+                required
+              />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+            </label>
+
+            <label>
+              <span>What do you need?</span>
+              <select name="service" required>
+                <option value="Website Design, Build & Launch">
+                  Website Design, Build & Launch
+                </option>
+                <option value="Website Review & Refresh">
+                  Website Review & Refresh
+                </option>
+                <option value="Managed Web Service">Managed Web Service</option>
+                <option value="Hosting, Domain or Email Support">
+                  Hosting, Domain or Email Support
+                </option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Message</span>
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Tell me a little about your business and what you need help with."
+                required
+              ></textarea>
+            </label>
+
+            <label class="form-honeypot" aria-hidden="true">
+              <span>Leave this field empty</span>
+              <input
+                type="text"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </label>
+
+            <p class="form-status" data-contact-status aria-live="polite"></p>
+
+            <button class="btn btn-primary" type="submit">Send Enquiry</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Alt. Web Solutions</p>
+        <a href="#home">Back to top</a>
+      </div>
+    </footer>
+
+    <script type="module" src="js/script.js"></script>
+  </body>
+</html>

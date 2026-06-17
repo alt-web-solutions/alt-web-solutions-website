@@ -1,0 +1,167 @@
+/* ================================
+   Interactive Tech Background
+
+   - The canvas draws the mouse-reactive node network.
+   - .tech-ambient follows the mouse using CSS variables set in JS.
+   - .tech-grid adds the subtle digital grid/circuit texture.
+
+   All three layers are fixed and pointer-events:none, so they stay decorative
+   and cannot increase page height, block clicks, or block mouse-wheel scrolling.
+================================ */
+
+.tech-background,
+.tech-ambient,
+.tech-grid {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  contain: layout style paint;
+}
+
+.tech-background {
+  z-index: 0;
+  opacity: 0.86;
+  mix-blend-mode: screen;
+}
+
+.tech-ambient,
+.tech-grid {
+  z-index: 1;
+}
+
+.tech-ambient {
+  background:
+    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 38%), var(--accent-glow-subtle), transparent 24rem),
+    radial-gradient(circle at 15% 20%, var(--accent-glow-faint), transparent 20rem),
+    radial-gradient(circle at 88% 76%, var(--accent-glow-faint), transparent 22rem);
+  opacity: 0.46;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.tech-grid {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px),
+    linear-gradient(115deg, transparent 0 48%, var(--accent-glow-faint) 49%, transparent 51% 100%);
+  background-size: 72px 72px, 72px 72px, 220px 220px;
+  mask-image: radial-gradient(circle at 50% 22%, black 0%, transparent 70%);
+  opacity: 0.16;
+  animation: interactiveGridDrift 24s linear infinite;
+}
+
+/* Keep normal page content above the decorative background layers.
+   The header needs a higher layer than main content so the mobile menu
+   always sits on top of the hero/title text. */
+.site-header {
+  z-index: 1000;
+}
+
+main,
+.site-footer {
+  position: relative;
+  z-index: 2;
+}
+
+body.light-theme .tech-background {
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+body.light-theme .tech-ambient {
+  opacity: 0.42;
+}
+
+body.light-theme .tech-grid {
+  opacity: 0.12;
+}
+
+/* Keep the hero sweep visually behind the hero only.
+   This prevents the effect from becoming part of the document's scrollable area. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -12% -8%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(100deg, transparent 0%, var(--accent-glow-subtle) 46%, transparent 58%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 28px,
+      var(--accent-glow-faint) 28px 29px,
+      transparent 29px 68px
+    );
+  opacity: 0.34;
+  mask-image: radial-gradient(circle at 34% 42%, black 0%, transparent 64%);
+  animation: interfaceSweep 10s ease-in-out infinite alternate;
+}
+
+body.light-theme .hero::before {
+  opacity: 0.26;
+}
+
+@keyframes interactiveGridDrift {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+
+  to {
+    background-position: 72px 72px, 72px 72px, 220px -220px;
+  }
+}
+
+@keyframes interfaceSweep {
+  from {
+    transform: translateX(-5%) skewX(-10deg);
+  }
+
+  to {
+    transform: translateX(7%) skewX(-10deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-background {
+    display: none;
+  }
+
+  .tech-grid,
+  .hero::before {
+    animation: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .tech-background {
+    opacity: 0.6;
+  }
+
+  body.light-theme .tech-background {
+    opacity: 0.46;
+  }
+
+  .tech-ambient {
+    opacity: 0.34;
+  }
+
+  body.light-theme .tech-ambient {
+    opacity: 0.36;
+  }
+
+  .tech-grid {
+    background-size: 54px 54px, 54px 54px, 170px 170px;
+    opacity: 0.1;
+  }
+
+  body.light-theme .tech-grid {
+    opacity: 0.1;
+  }
+}

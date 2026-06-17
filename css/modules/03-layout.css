@@ -1,0 +1,24 @@
+/* ================================
+   Layout
+================================ */
+
+.container {
+  width: min(100% - var(--container-gutter), var(--container-max-width));
+  margin: 0 auto;
+}
+
+.section {
+  padding: var(--space-25) 0;
+  /* Keeps in-page anchor jumps clear of the fixed navigation bar. */
+  scroll-margin-top: calc(var(--header-height) + var(--space-6));
+}
+
+.section-muted {
+  background: linear-gradient(
+    180deg,
+    var(--surface-muted-start),
+    var(--surface-muted-end)
+  );
+  border-top: var(--border-default);
+  border-bottom: var(--border-default);
+}
