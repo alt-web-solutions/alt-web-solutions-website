@@ -1,22 +1,12 @@
-/* ================================
-   Design Tokens
-   All reusable brand, layout, spacing,
-   typography, radius, shadow and motion
-   values live here.
-================================ */
+/* =========================================================
+   1. Design Tokens
+   Brand, spacing, type, surface, shadow, and motion values.
+   Existing legacy aliases are kept where JavaScript or older
+   modules still reference them.
+   ========================================================= */
 
 :root {
-  /* Fonts */
-  --font-body: "Canva Sans", Arial, Helvetica, sans-serif;
-  --font-display:
-    "Canva Sans Display", "Canva Sans", Arial, Helvetica, sans-serif;
-
-  /* Font weights */
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 700;
-
-  /* Brand colours */
+  /* Brand */
   --color-brand-black: #050505;
   --color-brand-charcoal: #111111;
   --color-brand-blue: #2563eb;
@@ -24,77 +14,192 @@
   --color-brand-white: #f5f5f5;
   --color-brand-off-white: #f5f5f2;
   --color-pure-white: #ffffff;
-  --color-transparent: transparent;
 
-  /* Theme colours - dark mode defaults */
-  --bg: var(--color-brand-black);
-  --bg-soft: #0d0d0d;
-  --bg-card: var(--color-brand-charcoal);
-  --text: var(--color-brand-white);
-  --text-muted: #a3a3a3;
-  --muted: var(--text-muted);
-  --border: rgba(255, 255, 255, 0.1);
-  --accent: var(--color-brand-blue);
-  --accent-hover: var(--color-brand-blue-hover);
+  /* Theme */
+  --color-bg: var(--color-brand-black);
+  --color-bg-soft: #0d0d0d;
+  --color-surface: rgba(255, 255, 255, 0.035);
+  --color-surface-elevated: rgba(255, 255, 255, 0.055);
+  --color-surface-glass: rgba(17, 17, 17, 0.78);
+  --color-text: var(--color-brand-white);
+  --color-text-muted: #a3a3a3;
+  --color-text-soft: #c8c8c8;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --color-primary: var(--color-brand-blue);
+  --color-primary-dark: var(--color-brand-blue-hover);
+  --color-primary-soft: rgba(37, 99, 235, 0.13);
+  --color-accent: var(--color-brand-blue);
+  --color-accent-soft: rgba(37, 99, 235, 0.13);
   --text-on-accent: var(--color-pure-white);
 
-  /* Semantic aliases for newer shared components. */
-  --color-bg: var(--bg);
-  --color-surface: var(--surface-card);
-  --color-surface-soft: var(--bg-card);
-  --color-text: var(--text);
-  --color-muted: var(--text-muted);
-  --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-dark: var(--accent-hover);
-  --color-accent-soft: var(--accent-glow-subtle);
-  --font-heading: var(--font-display);
-  --container: var(--container-max-width);
-  --section-padding: var(--space-25);
+  --gradient-surface:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.048), rgba(255, 255, 255, 0.024));
+  --gradient-surface-strong:
+    linear-gradient(145deg, rgba(37, 99, 235, 0.14), rgba(255, 255, 255, 0.035));
+  --gradient-hero:
+    radial-gradient(circle at top right, rgba(37, 99, 235, 0.16), transparent 34rem),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 24rem),
+    var(--color-bg);
 
-  /* Surfaces and overlays */
+  /* Legacy colour aliases */
+  --bg: var(--color-bg);
+  --bg-soft: var(--color-bg-soft);
+  --bg-card: var(--color-brand-charcoal);
+  --text: var(--color-text);
+  --text-muted: var(--color-text-muted);
+  --muted: var(--color-text-muted);
+  --border: var(--color-border);
+  --accent: var(--color-accent);
+  --accent-hover: var(--color-primary-dark);
   --surface-header: rgba(5, 5, 5, 0.78);
-  --surface-card: rgba(255, 255, 255, 0.035);
+  --surface-card: var(--color-surface);
   --surface-muted-start: rgba(255, 255, 255, 0.025);
   --surface-muted-end: rgba(255, 255, 255, 0.01);
   --surface-field-light: rgba(255, 255, 255, 0.92);
   --surface-feature-light: rgba(255, 255, 255, 0.88);
-  --header-bg: var(--surface-header);
-  --card-fill: var(--surface-card);
-  --section-muted-start: var(--surface-muted-start);
-  --section-muted-end: var(--surface-muted-end);
-  --hero-glow: var(--accent-glow-page);
-  --soft-glow: var(--neutral-glow-page);
 
-  /* Accent tints and glow colours */
+  /* Effects */
   --accent-glow-page: rgba(37, 99, 235, 0.16);
   --accent-glow-strong: rgba(37, 99, 235, 0.28);
-  --accent-glow-medium: rgba(37, 99, 235, 0.24);
+  --accent-glow-medium: rgba(37, 99, 235, 0.22);
   --accent-glow-soft: rgba(37, 99, 235, 0.18);
   --accent-glow-feature: rgba(37, 99, 235, 0.2);
   --accent-glow-subtle: rgba(37, 99, 235, 0.13);
-  --accent-glow-faint: rgba(37, 99, 235, 0.12);
+  --accent-glow-faint: rgba(37, 99, 235, 0.1);
   --accent-glow-bottom: rgba(37, 99, 235, 0.08);
   --accent-glow-bottom-light: rgba(37, 99, 235, 0.07);
-  --accent-border-soft: rgba(37, 99, 235, 0.35);
+  --accent-border-soft: rgba(37, 99, 235, 0.34);
   --accent-border-medium: rgba(37, 99, 235, 0.5);
   --accent-border-strong: rgba(37, 99, 235, 0.75);
   --accent-button-shadow: rgba(37, 99, 235, 0.24);
   --accent-button-shadow-hover: rgba(37, 99, 235, 0.34);
-  --accent-focus-ring: rgba(37, 99, 235, 0.13);
-
-  /* Neutral effects */
+  --accent-focus-ring: rgba(37, 99, 235, 0.16);
   --neutral-glow-page: rgba(255, 255, 255, 0.06);
   --neutral-glow-dark: rgba(255, 255, 255, 0.04);
   --neutral-glow-light: rgba(0, 0, 0, 0.04);
   --shine-highlight: rgba(255, 255, 255, 0.22);
   --shadow-rgb: 0, 0, 0;
 
+  /* Typography */
+  --font-body: "Canva Sans", Arial, Helvetica, sans-serif;
+  --font-heading: "Canva Sans Display", "Canva Sans", Arial, Helvetica, sans-serif;
+  --font-display: var(--font-heading);
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --text-xs: clamp(0.75rem, 0.72rem + 0.1vw, 0.8rem);
+  --text-sm: clamp(0.875rem, 0.84rem + 0.15vw, 0.95rem);
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.08rem);
+  --text-lg: clamp(1.1rem, 1.02rem + 0.28vw, 1.24rem);
+  --text-xl: clamp(1.35rem, 1.2rem + 0.65vw, 1.65rem);
+  --text-2xl: clamp(1.7rem, 1.4rem + 1.2vw, 2.35rem);
+  --text-3xl: clamp(2.15rem, 1.65rem + 2.2vw, 3.9rem);
+  --text-hero: clamp(3.1rem, 8vw, 8rem);
+  --text-page-title: clamp(3rem, 6vw, 5.4rem);
+  --text-card-title: clamp(1.8rem, 2.6vw, 2.45rem);
+
+  --text-eyebrow: 0.78rem;
+  --text-label: 0.78rem;
+  --text-small: var(--text-sm);
+  --text-form-label: 0.92rem;
+  --text-body-small: var(--text-sm);
+  --text-body: var(--text-base);
+  --text-section-copy: var(--text-lg);
+  --text-faq-icon: 1.4rem;
+  --text-hero-copy: clamp(1.1rem, 1.3vw, 1.3rem);
+  --text-heading-1: var(--text-hero);
+  --text-heading-1-mobile: clamp(2.75rem, 14vw, 4.5rem);
+  --text-heading-2: clamp(2.4rem, 5vw, 5.4rem);
+  --text-heading-3: var(--text-card-title);
+  --text-heading-price: clamp(2rem, 3.6vw, 3.6rem);
+  --text-heading-package: clamp(1.45rem, 2.2vw, 2rem);
+  --text-type-sample: clamp(3rem, 6vw, 6rem);
+
+  --tracking-tight: -0.045em;
+  --tracking-package-heading: -0.035em;
+  --tracking-eyebrow: 0.18em;
+  --tracking-label: 0.14em;
+  --line-height-base: 1.6;
+  --line-height-tight: 1;
+  --line-height-heading: 1.04;
+  --line-height-package-heading: 1.08;
+  --line-height-alphabet: 1.8;
+
+  /* Spacing */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6rem;
+  --section-y: clamp(4rem, 7vw, 6.5rem);
+  --section-y-sm: clamp(2.75rem, 5vw, 4rem);
+
+  /* Numeric legacy spacing aliases */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.3125rem;
+  --space-3: 0.5rem;
+  --space-4: 0.5625rem;
+  --space-5: 0.875rem;
+  --space-6: 0.9375rem;
+  --space-7: 1rem;
+  --space-8: 1.125rem;
+  --space-9: 1.25rem;
+  --space-10: 1.375rem;
+  --space-11: 1.5rem;
+  --space-12: 1.625rem;
+  --space-13: 1.75rem;
+  --space-14: 1.875rem;
+  --space-15: 2rem;
+  --space-16: 2.125rem;
+  --space-17: 2.625rem;
+  --space-18: 2.875rem;
+  --space-19: 3rem;
+  --space-20: 3.375rem;
+  --space-21: 3.625rem;
+  --space-22: 4rem;
+  --space-23: 5rem;
+  --space-24: 5.125rem;
+  --space-25: var(--section-y);
+
   /* Layout */
-  --container-max-width: 1180px;
+  --container-sm: 760px;
+  --container-md: 960px;
+  --container-lg: 1180px;
+  --container-xl: 1280px;
+  --container-max-width: var(--container-lg);
+  --container: var(--container-lg);
   --max-width: var(--container-max-width);
-  --container-gutter: 32px;
+  --page-gutter: clamp(1rem, 4vw, 2rem);
+  --container-gutter: calc(var(--page-gutter) * 2);
+  --content-measure: 68ch;
+  --header-height: 82px;
   --logo-height: 50px;
+  --hero-content-max-width: 980px;
+  --hero-title-max-width: 940px;
+  --hero-text-max-width: 720px;
+  --section-heading-max-width: 850px;
+  --quote-note-text-max-width: 780px;
+  --card-padding: clamp(1.5rem, 2.4vw, 2rem);
+  --card-padding-compact: clamp(1.25rem, 2vw, 1.65rem);
+  --card-padding-fluid: var(--card-padding);
+  --icon-size: 2.75rem;
+  --icon-size-sm: 2.25rem;
+  --icon-size-lg: 3.25rem;
+  --button-min-height: 3.375rem;
+  --form-field-padding-block: 0.95rem;
+  --form-field-padding-inline: 1rem;
+  --contact-panel-padding-fluid: 5vw;
+  --mobile-nav-edge: 1rem;
+  --ambient-backdrop-inset: -30%;
+  --feature-glow-inset: -1px;
   --theme-toggle-min-height: 42px;
   --theme-toggle-icon-size: 22px;
   --nav-toggle-size: 46px;
@@ -102,118 +207,46 @@
   --nav-toggle-line-height: 2px;
   --nav-link-underline-offset: -7px;
   --nav-link-underline-mobile-offset: 8px;
-  --nav-link-underline-height: 2px;
-  --button-min-height: 54px;
-  --mobile-nav-edge: 16px;
-  --ambient-backdrop-inset: -30%;
-  --feature-glow-inset: -1px;
-  --header-height: 82px;
-  --hero-content-max-width: 980px;
-  --hero-title-max-width: 900px;
-  --hero-text-max-width: 650px;
-  --section-heading-max-width: 850px;
-  --quote-note-text-max-width: 780px;
-  --card-padding-fluid: clamp(1.5rem, 2.4vw, 2rem);
-  --icon-size: 2.75rem;
-  --icon-size-sm: 2.25rem;
-  --icon-size-lg: 3.25rem;
 
-  /* Spacing */
-  --space-0: 0;
-  --space-1: 4px;
-  --space-2: 5px;
-  --space-3: 8px;
-  --space-4: 9px;
-  --space-5: 14px;
-  --space-6: 15px;
-  --space-7: 16px;
-  --space-8: 18px;
-  --space-9: 20px;
-  --space-10: 22px;
-  --space-11: 24px;
-  --space-12: 26px;
-  --space-13: 28px;
-  --space-14: 30px;
-  --space-15: 32px;
-  --space-16: 34px;
-  --space-17: 42px;
-  --space-18: 46px;
-  --space-19: 48px;
-  --space-20: 54px;
-  --space-21: 58px;
-  --space-22: 64px;
-  --space-23: 80px;
-  --space-24: 82px;
-  --space-25: 110px;
-  --form-field-padding-block: 15px;
-  --form-field-padding-inline: 16px;
-  --contact-panel-padding-fluid: 5vw;
-
-  /* Border radius */
-  --radius-none: 0;
-  --radius-form-field: 18px;
-  --radius-swatch: 22px;
-  --radius-card: 28px;
-  --radius-lg: 24px;
-  --radius-md: 22px;
-  --radius-xl: var(--radius-card);
-  --radius: var(--radius-card);
+  /* Radius, borders, shadows */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2.25rem;
   --radius-pill: 999px;
+  --radius-none: 0;
+  --radius-form-field: var(--radius-lg);
+  --radius-swatch: var(--radius-xl);
+  --radius-card: var(--radius-xl);
+  --radius: var(--radius-card);
 
-  /* Borders */
   --border-width: 1px;
-  --border-width-nav-indicator: 2px;
-  --border-default: var(--border-width) solid var(--border);
-
-  /* Shadows */
-  --shadow-site: 0 24px 80px rgba(var(--shadow-rgb), 0.45);
+  --border-default: 1px solid var(--color-border);
+  --shadow-sm: 0 14px 38px rgba(var(--shadow-rgb), 0.16);
+  --shadow-md: 0 22px 70px rgba(var(--shadow-rgb), 0.22);
+  --shadow-lg: 0 24px 80px rgba(var(--shadow-rgb), 0.45);
+  --shadow-glow: 0 18px 42px var(--accent-button-shadow);
+  --shadow-site: var(--shadow-lg);
   --shadow: var(--shadow-site);
-  --shadow-card: 0 24px 80px rgba(var(--shadow-rgb), 0.45);
-  --shadow-card-hover: 0 22px 70px rgba(var(--shadow-rgb), 0.24);
-  --shadow-card-hover-light: 0 22px 70px rgba(var(--shadow-rgb), 0.1);
-  --shadow-faq-hover: 0 22px 70px rgba(var(--shadow-rgb), 0.18);
+  --shadow-card: var(--shadow-lg);
+  --shadow-card-hover: var(--shadow-md);
+  --shadow-card-hover-light: 0 18px 52px rgba(var(--shadow-rgb), 0.08);
+  --shadow-faq-hover: 0 18px 48px rgba(var(--shadow-rgb), 0.18);
   --shadow-swatch-hover: 0 18px 38px rgba(var(--shadow-rgb), 0.22);
   --shadow-button-primary: 0 14px 34px var(--accent-button-shadow);
   --shadow-button-primary-hover: 0 18px 42px var(--accent-button-shadow-hover);
   --shadow-focus-ring: 0 0 0 4px var(--accent-focus-ring);
-  --shadow-sm: 0 12px 34px rgba(var(--shadow-rgb), 0.14);
-  --shadow-md: var(--shadow-card-hover);
-  --shadow-lg: var(--shadow-card);
-
-  /* Typography scale */
-  --text-eyebrow: 0.8rem;
-  --text-label: 0.78rem;
-  --text-small: 0.9rem;
-  --text-form-label: 0.92rem;
-  --text-body-small: 0.95rem;
-  --text-body: 1rem;
-  --text-section-copy: 1.15rem;
-  --text-faq-icon: 1.4rem;
-  --text-hero-copy: clamp(1.1rem, 2vw, 1.35rem);
-  --text-heading-1: clamp(4rem, 9vw, 8.8rem);
-  --text-heading-1-mobile: clamp(3.2rem, 17vw, 5rem);
-  --text-heading-2: clamp(2.5rem, 5vw, 5.8rem);
-  --text-heading-3: clamp(1.6rem, 2.2vw, 2.4rem);
-  --text-heading-price: clamp(2.2rem, 4vw, 4.2rem);
-  --text-heading-package: clamp(1.55rem, 2.5vw, 2.15rem);
-  --text-type-sample: clamp(3rem, 6vw, 6rem);
-
-  /* Letter spacing and line height */
-  --tracking-tight: -0.05em;
-  --tracking-package-heading: -0.04em;
-  --tracking-eyebrow: 0.18em;
-  --tracking-label: 0.14em;
-  --line-height-base: 1.6;
-  --line-height-tight: 1;
-  --line-height-package-heading: 1.06;
-  --line-height-alphabet: 1.8;
 
   /* Motion */
-  --duration-fast: 0.25s;
-  --duration-standard: 0.28s;
+  --transition-fast: 150ms ease;
+  --transition-base: 220ms ease;
+  --transition-slow: 420ms ease;
+  --duration-fast: 0.2s;
+  --duration-standard: 0.24s;
   --duration-theme: 0.3s;
   --duration-shine: 0.65s;
-  --duration-reveal: 0.75s;
+  --duration-reveal: 0.7s;
   --duration-hero: 0.8s;
   --duration-hero-title: 0.9s;
   --duration-ambient: 18s;
@@ -228,13 +261,11 @@
   --delay-3: 0.24s;
   --delay-4: 0.32s;
 
-  /* Effects */
   --blur-header: 18px;
   --blur-reveal: 8px;
   --glow-size-hero: 34rem;
   --glow-size-soft: 24rem;
   --glow-size-ambient-primary: 28rem;
-  --glow-size-ambient-secondary: 24rem;
   --glow-size-ambient-tertiary: 30rem;
   --glow-size-feature: 18rem;
   --ambient-offset-start-x: -2%;
@@ -243,8 +274,8 @@
   --ambient-offset-end-y: 1%;
   --translate-hover-sm: -1px;
   --translate-hover-md: -2px;
-  --translate-card-hover: -6px;
-  --translate-faq-hover: -3px;
+  --translate-card-hover: -4px;
+  --translate-faq-hover: -2px;
   --translate-reveal: 28px;
   --translate-hero-title: 30px;
   --translate-hero-content: 26px;
@@ -261,35 +292,43 @@
   --shine-start: -120%;
   --shine-end: 130%;
   --shine-width: 80%;
+  --mouse-x: 50%;
+  --mouse-y: 38%;
 }
 
-/* Light Theme
-   A warmer, softer light palette to reduce glare while keeping the Alt. brand clean. */
 body.light-theme {
-  --bg: #f1efe7;
-  --bg-soft: #f8f6ef;
-  --bg-card: #fffdf7;
-  --text: #111318;
-  --text-muted: #606672;
-  --muted: var(--text-muted);
-  --border: rgba(24, 28, 36, 0.11);
-  --accent: #2457c5;
-  --accent-hover: #1d4ed8;
+  --color-bg: #f1efe7;
+  --color-bg-soft: #f8f6ef;
+  --color-surface: rgba(255, 253, 247, 0.82);
+  --color-surface-elevated: rgba(255, 253, 247, 0.94);
+  --color-surface-glass: rgba(246, 244, 236, 0.9);
+  --color-text: #111318;
+  --color-text-muted: #606672;
+  --color-text-soft: #363b45;
+  --color-border: rgba(24, 28, 36, 0.11);
+  --color-border-strong: rgba(24, 28, 36, 0.18);
+  --color-primary: #2457c5;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-soft: rgba(36, 87, 197, 0.075);
+  --color-accent: #2457c5;
+  --color-accent-soft: rgba(36, 87, 197, 0.075);
 
-  --surface-header: rgba(246, 244, 236, 0.9);
-  --surface-card: rgba(255, 253, 247, 0.82);
+  --bg: var(--color-bg);
+  --bg-soft: var(--color-bg-soft);
+  --bg-card: #fffdf7;
+  --text: var(--color-text);
+  --text-muted: var(--color-text-muted);
+  --muted: var(--color-text-muted);
+  --border: var(--color-border);
+  --accent: var(--color-accent);
+  --accent-hover: var(--color-primary-dark);
+  --surface-header: var(--color-surface-glass);
+  --surface-card: var(--color-surface);
   --surface-muted-start: rgba(37, 99, 235, 0.035);
   --surface-muted-end: rgba(24, 28, 36, 0.018);
   --surface-field-light: rgba(255, 253, 247, 0.96);
   --surface-feature-light: rgba(255, 253, 247, 0.9);
-  --header-bg: var(--surface-header);
-  --card-fill: var(--surface-card);
-  --section-muted-start: var(--surface-muted-start);
-  --section-muted-end: var(--surface-muted-end);
-  --hero-glow: var(--accent-glow-page);
-  --soft-glow: var(--neutral-glow-page);
 
-  /* Lighter accent effects stop the light theme from feeling too bright or blue-heavy. */
   --accent-glow-page: rgba(36, 87, 197, 0.09);
   --accent-glow-strong: rgba(36, 87, 197, 0.18);
   --accent-glow-medium: rgba(36, 87, 197, 0.14);

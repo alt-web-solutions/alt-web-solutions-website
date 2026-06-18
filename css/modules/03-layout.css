@@ -1,24 +1,75 @@
-/* ================================
-   Layout
-================================ */
+/* =========================================================
+   4. Layout Utilities
+   ========================================================= */
 
-.container {
-  width: min(100% - var(--container-gutter), var(--container-max-width));
-  margin: 0 auto;
+.container,
+.container-sm,
+.container-md {
+  width: min(100% - (var(--page-gutter) * 2), var(--container-lg));
+  margin-inline: auto;
+}
+
+.container-sm {
+  width: min(100% - (var(--page-gutter) * 2), var(--container-sm));
+}
+
+.container-md {
+  width: min(100% - (var(--page-gutter) * 2), var(--container-md));
 }
 
 .section {
-  padding: var(--space-25) 0;
-  /* Keeps in-page anchor jumps clear of the fixed navigation bar. */
-  scroll-margin-top: calc(var(--header-height) + var(--space-6));
+  padding-block: var(--section-y);
+  scroll-margin-top: calc(var(--header-height) + var(--space-lg));
 }
 
 .section-muted {
-  background: linear-gradient(
-    180deg,
-    var(--surface-muted-start),
-    var(--surface-muted-end)
-  );
-  border-top: var(--border-default);
-  border-bottom: var(--border-default);
+  background: linear-gradient(180deg, var(--surface-muted-start), var(--surface-muted-end));
+  border-block: var(--border-default);
+}
+
+.section-heading,
+.section-header {
+  max-width: var(--section-heading-max-width);
+  margin-bottom: var(--space-2xl);
+}
+
+.section-heading p:not(.eyebrow),
+.section-copy {
+  max-width: var(--content-measure);
+  margin-top: var(--space-lg);
+  color: var(--color-text-muted);
+  font-size: var(--text-section-copy);
+}
+
+.grid,
+.card-grid,
+.colour-grid,
+.service-grid,
+.process {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3,
+.card-grid,
+.service-grid,
+.process {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.stack {
+  display: grid;
+  gap: var(--space-md);
 }

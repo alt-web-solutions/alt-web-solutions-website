@@ -1,17 +1,15 @@
-/* ================================
-   Services
-================================ */
+/* =========================================================
+   11. Service Blocks / 15. Footer
+   ========================================================= */
 
 .service-grid {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .service-card.featured {
   position: relative;
   overflow: hidden;
-  background:
-    linear-gradient(145deg, var(--accent-glow-feature), var(--surface-card)),
-    var(--bg-card);
+  background: var(--gradient-surface-strong), var(--bg-card);
 }
 
 .service-card.featured::before {
@@ -19,12 +17,8 @@
   position: absolute;
   inset: var(--feature-glow-inset);
   pointer-events: none;
-  background: radial-gradient(
-    circle at top right,
-    var(--accent-glow-strong),
-    transparent var(--glow-size-feature)
-  );
-  opacity: 0.75;
+  background: radial-gradient(circle at top right, var(--accent-glow-strong), transparent var(--glow-size-feature));
+  opacity: 0.72;
 }
 
 .service-card.featured > * {
@@ -32,80 +26,52 @@
   z-index: 1;
 }
 
-body.light-theme .service-card.featured {
-  background:
-    linear-gradient(145deg, var(--accent-glow-subtle), var(--surface-feature-light)),
-    var(--bg-card);
-}
-
 .service-card ul {
-  margin-top: var(--space-2);
+  display: grid;
+  gap: 0;
+  width: 100%;
+  margin-top: var(--space-xs);
   padding-top: 0;
 }
 
 .service-card li {
-  color: var(--text-muted);
-  padding: var(--space-5) 0;
+  color: var(--color-text-muted);
+  padding-block: var(--space-sm);
   border-top: var(--border-default);
+  line-height: var(--line-height-base);
 }
 
-/* ================================
-   Process
-================================ */
-
 .process {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-9);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .process-step {
-  gap: var(--space-5);
+  gap: var(--space-sm);
 }
 
 .process-step:hover {
   transform: none;
 }
 
-.process-step > .icon {
-  margin-bottom: 0;
+.process-step h3 {
+  margin-top: var(--space-xs);
 }
-
-.process-step > span:not(.material-symbols-outlined) {
-  margin-bottom: 0;
-  transition: color var(--duration-standard) var(--ease-standard);
-}
-
-/* ================================
-   Footer
-================================ */
 
 .site-footer {
   border-top: var(--border-default);
-  padding: var(--space-14) 0;
+  padding-block: var(--space-xl);
 }
 
 .footer-inner {
   display: flex;
   justify-content: space-between;
-  gap: var(--space-9);
-  color: var(--text-muted);
-  font-size: var(--text-body-small);
+  gap: var(--space-lg);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
 }
 
 .footer-inner a {
-  color: var(--text);
-}
-
-/* Light theme services/footer polish */
-body.light-theme .service-card.featured {
-  background:
-    linear-gradient(145deg, rgba(36, 87, 197, 0.09), rgba(255, 253, 247, 0.9)),
-    var(--bg-card);
-}
-
-body.light-theme .service-card.featured::before {
-  opacity: 0.42;
+  color: var(--color-text);
 }
 
 body.light-theme .site-footer {

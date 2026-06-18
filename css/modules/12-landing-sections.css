@@ -1,23 +1,23 @@
-/* ================================
-   Landing Page Additions
-================================ */
+/* =========================================================
+   12. Package / FAQ / Forms / Card Interaction
+   ========================================================= */
 
 .service-grid-three {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.pricing-grid .price-card h3 {
-  color: var(--text);
-  font-size: var(--text-heading-price);
-  margin-top: 0;
+.pricing-grid .price-card h3,
+.package-grid .package-card h3 {
+  color: var(--color-text);
+  font-size: var(--text-heading-package);
+  line-height: var(--line-height-package-heading);
+  letter-spacing: var(--tracking-package-heading);
 }
 
 .featured-price {
   position: relative;
   overflow: hidden;
-  background:
-    linear-gradient(145deg, var(--accent-glow-soft), var(--surface-card)),
-    var(--bg-card);
+  background: var(--gradient-surface-strong), var(--bg-card);
 }
 
 .featured-price::before {
@@ -25,12 +25,8 @@
   position: absolute;
   inset: var(--feature-glow-inset);
   pointer-events: none;
-  background: radial-gradient(
-    circle at top right,
-    var(--accent-glow-medium),
-    transparent var(--glow-size-feature)
-  );
-  opacity: 0.72;
+  background: radial-gradient(circle at top right, var(--accent-glow-medium), transparent var(--glow-size-feature));
+  opacity: 0.68;
 }
 
 .featured-price > * {
@@ -40,26 +36,23 @@
 
 .faq-layout {
   display: grid;
-  grid-template-columns: 0.8fr 1fr;
-  gap: var(--space-20);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+  gap: var(--space-2xl);
   align-items: start;
 }
 
 .faq-list {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-sm);
 }
 
 .faq-list details {
-  background: var(--surface-card);
-  border: var(--border-default);
-  border-radius: var(--radius-lg);
-  padding: 0;
   overflow: hidden;
+  padding: 0;
   transition:
-    transform var(--duration-standard) var(--ease-standard),
-    border-color var(--duration-standard) var(--ease-standard),
-    box-shadow var(--duration-standard) var(--ease-standard);
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .faq-list details:hover,
@@ -72,13 +65,13 @@
 .faq-list summary {
   cursor: pointer;
   list-style: none;
-  padding: var(--space-11) var(--space-12);
-  color: var(--text);
+  padding: var(--space-lg);
+  color: var(--color-text);
   font-weight: var(--font-weight-bold);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-8);
+  gap: var(--space-md);
 }
 
 .faq-list summary::-webkit-details-marker {
@@ -87,65 +80,58 @@
 
 .faq-list summary::after {
   content: "+";
-  color: var(--accent);
+  color: var(--color-accent);
   font-size: var(--text-faq-icon);
-  line-height: var(--line-height-tight);
-  transition: transform var(--duration-standard) var(--ease-standard);
+  line-height: 1;
+  transition: transform var(--transition-base);
 }
 
-.faq-list details[open] summary::after {
+.faq-list details[open] summary::after,
+.faq-list details.is-open summary::after {
   transform: rotate(var(--rotate-faq-open));
 }
 
 .faq-list details p {
-  color: var(--text-muted);
-  padding: 0 var(--space-12) var(--space-11);
-  animation: faqIn var(--duration-standard) var(--ease-standard) both;
+  padding: 0;
 }
 
-@keyframes faqIn {
-  from {
-    opacity: 0;
-    transform: translateY(var(--translate-faq-content));
-  }
+.faq-answer {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity var(--transition-base);
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.faq-answer-inner {
+  color: var(--color-text-muted);
+  padding: 0 var(--space-lg) var(--space-lg);
 }
 
 .contact-panel {
   display: grid;
-  grid-template-columns: 0.85fr 1fr;
-  gap: var(--space-19);
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: var(--space-2xl);
   align-items: start;
-  background: var(--surface-card);
-  border: var(--border-default);
-  border-radius: var(--radius);
-  padding: clamp(
-    var(--space-13),
-    var(--contact-panel-padding-fluid),
-    var(--space-21)
-  );
-  box-shadow: var(--shadow);
+  padding: clamp(var(--space-xl), var(--contact-panel-padding-fluid), var(--space-3xl));
 }
 
 .contact-panel p:not(.eyebrow),
 .form-note {
-  color: var(--text-muted);
-  margin-top: var(--space-11);
+  color: var(--color-text-muted);
+  margin-top: var(--space-md);
 }
 
 .contact-form {
   display: grid;
-  gap: var(--space-7);
+  gap: var(--space-md);
 }
 
 .contact-form label {
   display: grid;
-  gap: var(--space-3);
-  color: var(--text);
+  gap: var(--space-xs);
+  color: var(--color-text);
   font-weight: var(--font-weight-bold);
   font-size: var(--text-form-label);
 }
@@ -154,23 +140,23 @@
 .contact-form select,
 .contact-form textarea {
   width: 100%;
-  font-family: var(--font-body);
-  color: var(--text);
+  color: var(--color-text);
   background: var(--bg-card);
   border: var(--border-default);
-  border-radius: var(--radius-form-field);
+  border-radius: var(--radius-lg);
   padding: var(--form-field-padding-block) var(--form-field-padding-inline);
   outline: none;
   transition:
-    border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard),
-    transform var(--duration-fast) var(--ease-standard);
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 body.light-theme .contact-form input,
 body.light-theme .contact-form select,
 body.light-theme .contact-form textarea {
   background: var(--surface-field-light);
+  border-color: var(--color-border);
 }
 
 .contact-form input:focus,
@@ -181,117 +167,49 @@ body.light-theme .contact-form textarea {
   transform: translateY(var(--translate-hover-sm));
 }
 
-.form-note {
-  font-size: var(--text-small);
-  margin-top: 0;
+.form-honeypot {
+  display: none !important;
 }
 
-@media (max-width: 980px) {
-  .service-grid-three,
-  .faq-layout,
-  .contact-panel {
-    grid-template-columns: 1fr;
-  }
-
-  .service-grid-three .service-card {
-    min-height: auto;
-  }
+.form-status {
+  min-height: 1.4em;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
 }
 
-/* Refined packages section: no public pricing displayed */
-.package-grid .package-card h3 {
-  font-size: var(--text-heading-package);
-  line-height: var(--line-height-package-heading);
-  letter-spacing: var(--tracking-package-heading);
-  margin-bottom: var(--space-8);
+.form-status[data-state="success"] {
+  color: var(--color-accent);
 }
 
-.package-note {
-  margin-top: var(--space-10);
-  padding-top: var(--space-8);
-  border-top: var(--border-default);
-  color: var(--text);
-  font-weight: var(--font-weight-bold);
+.form-status[data-state="error"] {
+  color: var(--color-text);
+}
+
+.contact-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
 }
 
 .quote-note {
   display: flex;
-  gap: var(--space-8);
+  gap: var(--space-md);
   align-items: center;
   justify-content: space-between;
-  margin-top: var(--space-11);
-  padding: var(--space-11) var(--space-13);
-  border: var(--border-default);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
+  margin-top: var(--space-lg);
+  padding: var(--card-padding-compact);
 }
 
 .quote-note strong {
-  color: var(--text);
-  font-size: var(--text-body);
+  color: var(--color-text);
+  font-size: var(--text-base);
   white-space: nowrap;
 }
 
 .quote-note span {
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   max-width: var(--quote-note-text-max-width);
 }
 
-@media (max-width: 760px) {
-  .quote-note {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .quote-note strong {
-    white-space: normal;
-  }
-}
-
-/* ================================
-   Smooth FAQ accordions
-   Height is controlled by faq-accordion.js so both open and close animate.
-================================ */
-.faq-list details {
-  position: relative;
-}
-
-.faq-list details p {
-  padding: 0;
-  animation: none;
-}
-
-.faq-answer {
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition:
-    height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.3s var(--ease-standard);
-}
-
-.faq-answer-inner {
-  color: var(--text-muted);
-  padding: 0 var(--space-12) var(--space-11);
-}
-
-.faq-list details.is-open summary::after {
-  transform: rotate(var(--rotate-faq-open));
-}
-
-/* ================================
-   Optional mouse-reactive card polish
-
-   The 3D tilt is now opt-in. Add one of these to any card you want animated:
-   - class="tilt-card"
-   - data-card-tilt
-
-   Example:
-   <article class="service-card tilt-card reveal">...</article>
-
-   JS adds .interactive-card at runtime, then updates the CSS variables below.
-   CSS handles the smooth transition back to rest when the mouse leaves.
-================================ */
 .tilt-card,
 [data-card-tilt],
 .interactive-card {
@@ -305,16 +223,12 @@ body.light-theme .contact-form textarea {
   position: relative;
   transform-style: preserve-3d;
   transition:
-    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.22s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1),
-    background 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    background var(--transition-base);
 }
 
-/*
-   No hover glare/sheen is drawn over the cards. The selected cards only tilt,
-   lift slightly, and ease their border/shadow in and out.
-*/
 .interactive-card::after {
   display: none;
 }
@@ -336,14 +250,9 @@ body.light-theme .contact-form textarea {
 
 .interactive-card:hover,
 .interactive-card.is-tilting {
-  --card-lift: -6px;
+  --card-lift: -4px;
   border-color: var(--accent-border-soft);
   box-shadow: var(--shadow-card-hover);
-}
-
-body.light-theme .interactive-card:hover,
-body.light-theme .interactive-card.is-tilting {
-  box-shadow: var(--shadow-card-hover-light);
 }
 
 .interactive-card.is-tilting {
@@ -354,51 +263,7 @@ body.light-theme .interactive-card.is-tilting {
     background 0.18s ease-out;
 }
 
-/* Light theme section polish */
-body.light-theme .faq-list details,
-body.light-theme .contact-panel,
-body.light-theme .quote-note {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 253, 247, 0.9),
-    rgba(249, 246, 238, 0.78)
-  );
-  border-color: rgba(24, 28, 36, 0.1);
-}
-
-body.light-theme .contact-form input,
-body.light-theme .contact-form select,
-body.light-theme .contact-form textarea {
-  background: var(--surface-field-light);
-  border-color: rgba(24, 28, 36, 0.13);
-}
-
-body.light-theme .featured-price {
-  background:
-    linear-gradient(145deg, rgba(36, 87, 197, 0.09), rgba(255, 253, 247, 0.9)),
-    var(--bg-card);
-}
-
-.form-honeypot {
-  display: none !important;
-}
-
-.form-status {
-  min-height: 1.4em;
-  margin: 0;
-  color: var(--text-muted);
-  font-size: var(--text-small);
-}
-
-.form-status[data-state="success"] {
-  color: var(--accent);
-}
-
-.form-status[data-state="error"] {
-  color: var(--text);
-}
-
-.contact-form button:disabled {
-  cursor: wait;
-  opacity: 0.72;
+body.light-theme .interactive-card:hover,
+body.light-theme .interactive-card.is-tilting {
+  box-shadow: var(--shadow-card-hover-light);
 }

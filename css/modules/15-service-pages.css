@@ -1,6 +1,6 @@
-/* ================================
+/* =========================================================
    Service Detail Pages
-================================ */
+   ========================================================= */
 
 .page-hero {
   min-height: calc(72vh - var(--header-height));
@@ -14,26 +14,21 @@
 
 .page-hero-copy h1 {
   max-width: 960px;
-  margin-top: var(--space-8);
-}
-
-.page-hero-copy p:not(.eyebrow) {
-  max-width: 760px;
-  margin-top: var(--space-11);
-  color: var(--text-muted);
-  font-size: var(--text-hero-copy);
+  margin-top: var(--space-sm);
+  font-size: var(--text-page-title);
 }
 
 .service-section-grid {
   display: grid;
-  gap: var(--space-9);
+  gap: var(--space-lg);
 }
 
 .service-detail-card {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
-  gap: clamp(var(--space-10), 3vw, var(--space-16));
+  gap: clamp(var(--space-xl), 4vw, var(--space-3xl));
   align-items: start;
+  padding: clamp(var(--space-xl), 4vw, var(--space-3xl));
   min-height: auto;
 }
 
@@ -41,18 +36,27 @@
   min-width: 0;
 }
 
+.service-detail-card .icon {
+  margin-bottom: 0;
+}
+
 .service-detail-card h2 {
   max-width: 13ch;
-  font-size: clamp(2.75rem, 5.2vw, 4.6rem);
+  font-size: clamp(2.7rem, 5vw, 4.6rem);
   line-height: 0.98;
   overflow-wrap: anywhere;
 }
 
 .service-detail-card p {
-  color: var(--text-muted);
-  margin-top: var(--space-6);
   max-width: 58ch;
+  margin-top: var(--space-md);
+  color: var(--color-text-muted);
   line-height: var(--line-height-base);
+}
+
+.service-note {
+  margin-top: var(--space-md);
+  color: var(--color-text-muted);
 }
 
 .service-detail-card ul,
@@ -65,47 +69,8 @@
 
 .service-detail-card li,
 .detail-list li {
-  color: var(--text-muted);
-  padding: var(--space-6) 0;
+  color: var(--color-text-muted);
+  padding-block: var(--space-md);
   border-top: var(--border-default);
   line-height: var(--line-height-base);
-}
-
-.service-detail-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-5);
-  margin-top: var(--space-9);
-}
-
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-3);
-  width: fit-content;
-  margin-top: var(--space-10);
-  color: var(--accent);
-  font-weight: var(--font-weight-bold);
-}
-
-.text-link:hover {
-  color: var(--text);
-}
-
-.service-note {
-  margin-top: var(--space-7);
-  color: var(--text-muted);
-}
-
-@media (max-width: 980px) {
-  .service-detail-card {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 760px) {
-  .page-hero {
-    min-height: auto;
-    padding-top: var(--space-23);
-  }
 }
