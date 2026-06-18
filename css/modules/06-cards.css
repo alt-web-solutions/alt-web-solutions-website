@@ -79,14 +79,14 @@ body.light-theme .process-step:hover {
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  margin-bottom: var(--space-11);
+  margin-bottom: 0;
 }
 
 .info-card > .icon,
 .service-card > .icon,
 .process-step > .icon,
 .service-detail-card .icon {
-  margin-bottom: var(--space-10);
+  margin-bottom: 0;
 }
 
 .material-symbols-outlined {
@@ -189,8 +189,8 @@ body.light-theme .process-step:hover {
 }
 
 .service-card .text-link {
-  margin-top: auto;
-  padding-top: var(--space-4);
+  margin-top: var(--space-3);
+  padding-top: 0;
 }
 
 /* Light theme card polish

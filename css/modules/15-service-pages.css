@@ -32,7 +32,7 @@
 .service-detail-card {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
-  gap: clamp(var(--space-11), 4vw, var(--space-18));
+  gap: clamp(var(--space-10), 3vw, var(--space-16));
   align-items: start;
   min-height: auto;
 }
@@ -43,14 +43,14 @@
 
 .service-detail-card h2 {
   max-width: 13ch;
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 0.96;
+  font-size: clamp(2.75rem, 5.2vw, 4.6rem);
+  line-height: 0.98;
   overflow-wrap: anywhere;
 }
 
 .service-detail-card p {
   color: var(--text-muted);
-  margin-top: var(--space-8);
+  margin-top: var(--space-6);
   max-width: 58ch;
   line-height: var(--line-height-base);
 }
@@ -59,7 +59,8 @@
 .detail-list {
   display: grid;
   gap: 0;
-  margin-top: var(--space-8);
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .service-detail-card li,
@@ -74,7 +75,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-5);
-  margin-top: var(--space-12);
+  margin-top: var(--space-9);
 }
 
 .text-link {
@@ -92,7 +93,7 @@
 }
 
 .service-note {
-  margin-top: var(--space-10);
+  margin-top: var(--space-7);
   color: var(--text-muted);
 }
 
