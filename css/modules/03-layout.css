@@ -48,7 +48,7 @@
 .process {
   display: grid;
   gap: var(--space-lg);
-  align-items: start;
+  align-items: stretch;
 }
 
 .grid-2 {
