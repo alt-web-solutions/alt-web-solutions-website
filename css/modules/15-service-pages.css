@@ -34,6 +34,7 @@
   grid-template-columns: minmax(0, 0.85fr) minmax(280px, 1fr);
   gap: var(--space-13);
   align-items: start;
+  min-height: auto;
 }
 
 .service-detail-card p {

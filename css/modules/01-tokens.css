@@ -104,8 +104,8 @@
   --nav-link-underline-mobile-offset: 8px;
   --nav-link-underline-height: 2px;
   --button-min-height: 54px;
-  --service-card-min-height: 560px;
-  --service-card-three-min-height: 610px;
+  --service-card-min-height: 360px;
+  --service-card-three-min-height: 390px;
   --mobile-nav-edge: 16px;
   --ambient-backdrop-inset: -30%;
   --feature-glow-inset: -1px;
