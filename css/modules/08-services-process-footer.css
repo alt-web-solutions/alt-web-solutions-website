@@ -6,12 +6,6 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-.service-card {
-  min-height: var(--service-card-min-height);
-  display: flex;
-  flex-direction: column;
-}
-
 .service-card.featured {
   position: relative;
   overflow: hidden;
@@ -65,14 +59,21 @@ body.light-theme .service-card.featured {
   gap: var(--space-9);
 }
 
-.process-step span {
-  transition:
-    color var(--duration-standard) var(--ease-standard),
-    transform var(--duration-standard) var(--ease-standard);
+.process-step {
+  gap: var(--space-6);
 }
 
-.process-step:hover span {
-  transform: translateX(var(--translate-process-arrow));
+.process-step:hover {
+  transform: none;
+}
+
+.process-step > .icon {
+  margin-bottom: var(--space-3);
+}
+
+.process-step > span:not(.material-symbols-outlined) {
+  margin-bottom: var(--space-4);
+  transition: color var(--duration-standard) var(--ease-standard);
 }
 
 /* ================================

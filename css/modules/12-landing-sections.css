@@ -6,10 +6,6 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-.service-grid-three .service-card {
-  min-height: var(--service-card-three-min-height);
-}
-
 .pricing-grid .price-card h3 {
   color: var(--text);
   font-size: var(--text-heading-price);

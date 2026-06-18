@@ -104,8 +104,6 @@
   --nav-link-underline-mobile-offset: 8px;
   --nav-link-underline-height: 2px;
   --button-min-height: 54px;
-  --service-card-min-height: 360px;
-  --service-card-three-min-height: 390px;
   --mobile-nav-edge: 16px;
   --ambient-backdrop-inset: -30%;
   --feature-glow-inset: -1px;
@@ -252,7 +250,6 @@
   --translate-hero-content: 26px;
   --translate-fade-up: 18px;
   --translate-faq-content: -6px;
-  --translate-process-arrow: 4px;
   --mobile-menu-offset: -8px;
   --scale-hover-swatch: 1.025;
   --scale-hover-icon: 1.06;

@@ -30,6 +30,7 @@
 .service-card,
 .type-sample,
 .process-step {
+  min-width: 0;
   background: var(--surface-card);
   border: var(--border-default);
   border-radius: var(--radius);
@@ -40,6 +41,14 @@
     background var(--duration-theme) var(--ease-standard),
     border-color var(--duration-theme) var(--ease-standard),
     box-shadow var(--duration-theme) var(--ease-standard);
+}
+
+.info-card,
+.service-card,
+.process-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
 }
 
 .info-card:hover,
@@ -169,7 +178,19 @@ body.light-theme .process-step:hover {
 .process-step p,
 .voice-item p {
   color: var(--text-muted);
-  margin-top: var(--space-7);
+  margin-top: 0;
+  line-height: var(--line-height-base);
+}
+
+.info-card h3,
+.service-card h3,
+.process-step h3 {
+  overflow-wrap: anywhere;
+}
+
+.service-card .text-link {
+  margin-top: auto;
+  padding-top: var(--space-4);
 }
 
 /* Light theme card polish

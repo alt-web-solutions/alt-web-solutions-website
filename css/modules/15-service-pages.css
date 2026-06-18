@@ -31,29 +31,43 @@
 
 .service-detail-card {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(280px, 1fr);
-  gap: var(--space-13);
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
+  gap: clamp(var(--space-11), 4vw, var(--space-18));
   align-items: start;
   min-height: auto;
+}
+
+.service-detail-card > div {
+  min-width: 0;
+}
+
+.service-detail-card h2 {
+  max-width: 13ch;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.96;
+  overflow-wrap: anywhere;
 }
 
 .service-detail-card p {
   color: var(--text-muted);
   margin-top: var(--space-8);
+  max-width: 58ch;
+  line-height: var(--line-height-base);
 }
 
 .service-detail-card ul,
 .detail-list {
   display: grid;
-  gap: var(--space-5);
+  gap: 0;
   margin-top: var(--space-8);
 }
 
 .service-detail-card li,
 .detail-list li {
   color: var(--text-muted);
-  padding: var(--space-5) 0;
+  padding: var(--space-6) 0;
   border-top: var(--border-default);
+  line-height: var(--line-height-base);
 }
 
 .service-detail-actions {
