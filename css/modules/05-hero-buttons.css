@@ -56,11 +56,13 @@ h3 {
 }
 
 .hero-content .eyebrow {
-  animation: fadeIn var(--duration-hero) var(--ease-standard) var(--delay-hero-eyebrow) both;
+  animation: fadeIn var(--duration-hero) var(--ease-standard)
+    var(--delay-hero-eyebrow) both;
 }
 
 .hero-content h1 {
-  animation: heroTitle var(--duration-hero-title) var(--ease-standard) var(--delay-hero-title) both;
+  animation: heroTitle var(--duration-hero-title) var(--ease-standard)
+    var(--delay-hero-title) both;
 }
 
 .hero-text,
@@ -72,7 +74,8 @@ h3 {
 }
 
 .hero-content .hero-text {
-  animation: fadeUp var(--duration-hero) var(--ease-standard) var(--delay-hero-text) both;
+  animation: fadeUp var(--duration-hero) var(--ease-standard)
+    var(--delay-hero-text) both;
 }
 
 .hero-actions,
@@ -85,7 +88,8 @@ h3 {
 }
 
 .hero-content .hero-actions {
-  animation: fadeUp var(--duration-hero) var(--ease-standard) var(--delay-hero-actions) both;
+  animation: fadeUp var(--duration-hero) var(--ease-standard)
+    var(--delay-hero-actions) both;
 }
 
 .btn {
@@ -100,7 +104,7 @@ h3 {
   gap: 0.55rem;
   border: 1px solid transparent;
   border-radius: var(--radius-pill);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
   line-height: 1;
   text-align: center;
   transition:
@@ -117,7 +121,12 @@ h3 {
   inset: 0 auto 0 var(--shine-start);
   z-index: -1;
   width: var(--shine-width);
-  background: linear-gradient(110deg, transparent, var(--shine-highlight), transparent);
+  background: linear-gradient(
+    110deg,
+    transparent,
+    var(--shine-highlight),
+    transparent
+  );
   transform: skewX(var(--shine-skew));
   transition: left var(--duration-shine) var(--ease-standard);
 }
@@ -157,8 +166,14 @@ h3 {
 }
 
 @keyframes heroFadeUp {
-  from { opacity: 0; transform: translateY(var(--translate-hero-content)); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(var(--translate-hero-content));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes heroTitle {
@@ -176,11 +191,21 @@ h3 {
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(var(--translate-fade-up)); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(var(--translate-fade-up));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
