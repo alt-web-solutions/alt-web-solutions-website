@@ -41,17 +41,20 @@ h3 {
   display: flex;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
 .hero-grid {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
-  gap: var(--space-2xl);
+  grid-template-columns: 1fr;
   align-items: center;
 }
 
 .hero-content,
 .page-hero-copy {
+  position: relative;
+  z-index: 1;
   max-width: var(--hero-content-max-width);
   animation: heroFadeUp var(--duration-hero-title) var(--ease-standard) forwards;
 }
@@ -95,32 +98,16 @@ h3 {
 
 .hero-visual,
 .section-visual {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  margin: 0;
-  border: var(--border-default);
-  border-radius: var(--radius-card);
-  background:
-    radial-gradient(circle at 70% 12%, var(--accent-glow-soft), transparent 34%),
-    var(--gradient-surface);
-  box-shadow: var(--shadow-sm);
-}
-
-.hero-visual::before,
-.section-visual::before {
-  content: "";
   position: absolute;
-  inset: -1px;
+  z-index: 0;
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 42%);
-  opacity: 0.45;
+  margin: 0;
+  opacity: 0.28;
+  filter: drop-shadow(0 26px 70px rgba(var(--shadow-rgb), 0.42));
 }
 
 .hero-visual img,
 .section-visual img {
-  position: relative;
-  z-index: 1;
   display: block;
   width: 100%;
   height: auto;
@@ -128,21 +115,26 @@ h3 {
 }
 
 .hero-visual {
-  max-width: 520px;
-  justify-self: end;
-  padding: clamp(var(--space-md), 2.5vw, var(--space-xl));
+  right: max(-12rem, -14vw);
+  bottom: -2rem;
+  width: min(34vw, 500px);
+  opacity: 0.12;
   animation: fadeUp var(--duration-hero) var(--ease-standard)
     var(--delay-hero-actions) both;
 }
 
 .section-visual {
-  max-width: 860px;
-  margin: 0 auto var(--space-xl);
-  padding: clamp(var(--space-md), 2vw, var(--space-lg));
+  width: min(38vw, 520px);
 }
 
-.section-visual img {
-  max-height: 360px;
+.section-visual-managed {
+  top: 5%;
+  right: max(-5rem, -7vw);
+}
+
+.section-visual-process {
+  top: 3%;
+  right: max(-4rem, -6vw);
 }
 
 .btn {

@@ -23,9 +23,20 @@
   }
 
   .hero-visual,
-  .about-hero-visual {
-    justify-self: start;
+  .about-hero-visual,
+  .section-visual {
+    position: relative;
+    inset: auto;
+    transform: none;
+    justify-self: center;
+    width: 100%;
     max-width: min(100%, 560px);
+    opacity: 0.52;
+    filter: drop-shadow(0 20px 48px rgba(var(--shadow-rgb), 0.28));
+  }
+
+  .section-visual {
+    margin: calc(var(--space-2xl) * -0.35) auto var(--space-xl);
   }
 
   .hero,
@@ -126,8 +137,8 @@
   .hero-visual,
   .about-hero-visual,
   .section-visual {
-    border-radius: var(--radius-xl);
-    padding: var(--space-md);
+    max-width: min(100%, 340px);
+    opacity: 0.46;
   }
 
   .hero-visual img,
