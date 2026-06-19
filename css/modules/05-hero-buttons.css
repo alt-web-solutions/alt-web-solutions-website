@@ -115,9 +115,9 @@ h3 {
 }
 
 .hero-visual {
-  right: max(-12rem, -14vw);
-  bottom: -2rem;
-  width: min(34vw, 500px);
+  top: -20%;
+  left: 55%;
+  width: min(34vw, 600px);
   opacity: 0.12;
   animation: fadeUp var(--duration-hero) var(--ease-standard)
     var(--delay-hero-actions) both;
@@ -128,13 +128,22 @@ h3 {
 }
 
 .section-visual-managed {
-  top: 5%;
-  right: max(-5rem, -7vw);
+  top: 10%;
+  left: 60%;
 }
 
 .section-visual-process {
-  top: 3%;
-  right: max(-4rem, -6vw);
+  top: 10%;
+  left: 60%;
+}
+
+.section-visual-services {
+  top: 10%;
+  left: 60%;
+}
+
+.flipped img {
+  transform: scaleX(-1);
 }
 
 .btn {
