@@ -45,7 +45,8 @@ h3 {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+  gap: var(--space-2xl);
   align-items: center;
 }
 
@@ -90,6 +91,58 @@ h3 {
 .hero-content .hero-actions {
   animation: fadeUp var(--duration-hero) var(--ease-standard)
     var(--delay-hero-actions) both;
+}
+
+.hero-visual,
+.section-visual {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  border: var(--border-default);
+  border-radius: var(--radius-card);
+  background:
+    radial-gradient(circle at 70% 12%, var(--accent-glow-soft), transparent 34%),
+    var(--gradient-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-visual::before,
+.section-visual::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 42%);
+  opacity: 0.45;
+}
+
+.hero-visual img,
+.section-visual img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.hero-visual {
+  max-width: 520px;
+  justify-self: end;
+  padding: clamp(var(--space-md), 2.5vw, var(--space-xl));
+  animation: fadeUp var(--duration-hero) var(--ease-standard)
+    var(--delay-hero-actions) both;
+}
+
+.section-visual {
+  max-width: 860px;
+  margin: 0 auto var(--space-xl);
+  padding: clamp(var(--space-md), 2vw, var(--space-lg));
+}
+
+.section-visual img {
+  max-height: 360px;
 }
 
 .btn {

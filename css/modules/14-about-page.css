@@ -10,7 +10,7 @@
 
 .about-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.52fr);
   gap: var(--space-2xl);
   align-items: center;
 }
@@ -27,6 +27,26 @@
   margin-top: var(--space-md);
   color: var(--color-text-muted);
   font-size: var(--text-hero-copy);
+}
+
+.about-hero-visual {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: clamp(var(--space-md), 2.4vw, var(--space-xl));
+  border: var(--border-default);
+  border-radius: var(--radius-card);
+  background:
+    radial-gradient(circle at 68% 16%, var(--accent-glow-soft), transparent 34%),
+    var(--gradient-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-hero-visual img {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
 }
 
 .about-split,

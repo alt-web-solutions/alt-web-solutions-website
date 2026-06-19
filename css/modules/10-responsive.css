@@ -22,6 +22,12 @@
     grid-template-columns: 1fr;
   }
 
+  .hero-visual,
+  .about-hero-visual {
+    justify-self: start;
+    max-width: min(100%, 560px);
+  }
+
   .hero,
   .about-hero,
   .page-hero {
@@ -115,6 +121,19 @@
   .about-hero-actions,
   .service-detail-actions {
     flex-direction: column;
+  }
+
+  .hero-visual,
+  .about-hero-visual,
+  .section-visual {
+    border-radius: var(--radius-xl);
+    padding: var(--space-md);
+  }
+
+  .hero-visual img,
+  .about-hero-visual img,
+  .section-visual img {
+    max-height: 280px;
   }
 
   .btn {
